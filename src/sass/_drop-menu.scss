@@ -6,6 +6,10 @@
   top: 0;
 }
 
+.is-hidden {
+  display: none;
+}
+
 .drop-menu__header {
   position: fixed;
   display: flex;
@@ -29,7 +33,7 @@
 }
 
 .drop-menu__nav {
-  display: none;
+  // display: none;
   position: absolute;
   top: 60px;
   width: 100%;
