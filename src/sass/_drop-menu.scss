@@ -1,0 +1,67 @@
+.drop-menu {
+  // display: none;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  top: 0;
+}
+
+.drop-menu__header {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 60px;
+  padding: 0px 40px;
+
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: $primary-black;
+  opacity: 0.8;
+}
+
+.drop-menu__button {
+  fill: $primary-black;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: $secondary-brand-color;
+}
+
+.drop-menu__nav {
+  display: none;
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  padding: 48px 40px;
+
+  background-color: $primary-white;
+}
+
+.drop-menu__list {
+  margin-bottom: 30px;
+
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.drop-menu__item:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.drop-menu__contacts {
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.drop-menu__contact:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.drop-menu__item a,
+.drop-menu__contact a {
+  display: inline-block;
+  width: 100%;
+}
