@@ -1,0 +1,79 @@
+<section class="section route-form-section">
+  <div class="container route-form">
+    <form autocomplete="off">
+      <h2 class="route-form__title">Оберіть послугу</h2>
+      <div class="route-form__service">
+        <label for="service-type" class="route-form__service-type">
+          <input type="radio" name="service-type" value="seat" />
+          <span>Зайняти місце</span>
+        </label>
+        <label for="service-type" class="route-form__service-type">
+          <input type="radio" name="service-type" value="parcel" />
+          <span>Відправити посилку</span>
+        </label>
+      </div>
+      <h2 class="route-form__title">Оберіть маршрут</h2>
+      <div class="route-form__select">
+        <label for="start-route" class="route-form__city">Звідки:</label>
+        <select
+          id="start-route"
+          name="start-route"
+          class="route-form__selector"
+        >
+          <option value="Chernivtsi" selected>Чернівці</option>
+          <option value="Ternopil">Тернопіль</option>
+          <option value="Lviv">Львів</option>
+          <option value="Krakiv">Краків</option>
+          <option value="Berlin">Берлін</option>
+          <option value="Dresden">Дрезден</option>
+        </select>
+        <label for="end-route" class="route-form__city">Куди:</label>
+        <select id="end-route" name="end-route" class="route-form__selector">
+          <option value="Chernivtsi">Чернівці</option>
+          <option value="Ternopil">Тернопіль</option>
+          <option value="Lviv">Львів</option>
+          <option value="Krakiv">Краків</option>
+          <option value="Berlin" selected>Берлін</option>
+          <option value="Dresden">Дрезден</option>
+        </select>
+      </div>
+      <div class="route-form__dates">
+        <label for="start-date">Дата відправлення: </label>
+        <input type="date" class="route-form__selector" />
+      </div>
+      <button type="submit">Шукати перевізника</button>
+    </form>
+    <ul>
+      <li>
+        <p>MB2367</p>
+        <h3>
+          Час відправлення<span>01.03.2019 06:00</span>Орієнтований час прибуття
+          <span>02.03.2019 01:00</span>
+        </h3>
+        <h4>Зручності:</h4>
+        <ul>
+          <li>WiFi</li>
+          <li>Розетки</li>
+          <li>Плед</li>
+          <li>Подушка</li>
+        </ul>
+        <button type="button">Вибрати</button>
+      </li>
+      <li>
+        <p>MB0808</p>
+        <h3>
+          Час відправлення<span>12.10.1995 06:00</span>Орієнтований час прибуття
+          <span>12.10.1995 01:00</span>
+        </h3>
+        <h4>Зручності:</h4>
+        <ul>
+          <li>WiFi</li>
+          <li>Розетки</li>
+          <li>Плед</li>
+          <li>Подушка</li>
+        </ul>
+        <button type="button">Вибрати</button>
+      </li>
+    </ul>
+  </div>
+</section>

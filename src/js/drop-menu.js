@@ -1,9 +1,8 @@
-const els = {
+const refs = {
   openBtn: document.querySelector('[data-open-close-btn]'),
   dropMenu: document.querySelector('[data-nav]'),
 };
 
-els.openBtn.addEventListener('click', () => {
-  els.dropMenu.classList.toggle('is-hidden');
+refs.openBtn.addEventListener('click', () => {
+  refs.dropMenu.classList.toggle('is-hidden');
 });
-s;

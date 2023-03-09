@@ -1,0 +1,57 @@
+.route-form {
+  border-radius: 15px;
+  padding: 15px;
+
+  text-align: center;
+
+  background-color: rgba(0, 0, 0, 0.6);
+  color: $primary-white;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.24), 0px 6px 6px rgba(0, 0, 0, 0.12),
+    2px 6px 8px rgba(0, 0, 0, 0.32);
+}
+
+.route-form-section {
+  padding: 40px 15px;
+}
+
+.route-form__title {
+  margin-bottom: 12px;
+
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.route-form__service {
+}
+
+.route-form__service-type {
+  display: inline-block;
+  padding: 5px;
+
+  border-radius: 4px;
+  // color: $primary-white;
+  // background-color: $primary-black-alpha;
+}
+
+.route-form__service-type > input:checked + span {
+  // color: $primary-black-alpha;
+  // background-color: $primary-white-alpha;
+  color: $secondary-brand-color;
+  background-color: $primary-black-alpha;
+}
+
+.route-form__select,
+.route-form__dates {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+.route-form__selector {
+  height: 40px;
+
+  border-radius: 4px;
+  color: $primary-black;
+  background-color: $primary-white-alpha;
+}
