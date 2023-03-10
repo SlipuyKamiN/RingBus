@@ -1,17 +1,22 @@
 .route-form {
-  border-radius: 15px;
-  padding: 15px;
+  margin-bottom: 20px;
 
   text-align: center;
+}
+
+.route-form-section {
+  padding: 40px 15px;
+}
+
+.container__route-form {
+  border-radius: 15px;
+  padding: 15px;
 
   background-color: rgba(0, 0, 0, 0.6);
   color: $primary-white;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.24), 0px 6px 6px rgba(0, 0, 0, 0.12),
     2px 6px 8px rgba(0, 0, 0, 0.32);
-}
-
-.route-form-section {
-  padding: 40px 15px;
+  backdrop-filter: blur(3px);
 }
 
 .route-form__title {
@@ -23,6 +28,9 @@
 }
 
 .route-form__service {
+  margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .route-form__service-type {
@@ -30,28 +38,70 @@
   padding: 5px;
 
   border-radius: 4px;
-  // color: $primary-white;
-  // background-color: $primary-black-alpha;
-}
 
-.route-form__service-type > input:checked + span {
-  // color: $primary-black-alpha;
-  // background-color: $primary-white-alpha;
-  color: $secondary-brand-color;
-  background-color: $primary-black-alpha;
+  & input {
+    visibility: hidden;
+  }
+
+  & input:checked + span {
+    color: $secondary-brand-color;
+  }
 }
 
 .route-form__select,
-.route-form__dates {
+.route-form__date {
   display: flex;
   flex-direction: column;
   text-align: start;
 }
 
+.route-form__city {
+  margin-bottom: 4px;
+}
+
 .route-form__selector {
   height: 40px;
+  margin-bottom: 10px;
+
+  font-size: 18px;
+  text-transform: uppercase;
 
   border-radius: 4px;
   color: $primary-black;
   background-color: $primary-white-alpha;
+}
+
+.route-form__selector--no-margin {
+  margin-bottom: 0px;
+}
+
+.route-form__date {
+  margin-bottom: 20px;
+}
+
+.routes__bus {
+  text-align: start;
+  border-radius: 15px;
+  padding: 15px;
+
+  color: $primary-white;
+  background-color: rgba($color: #ffffff, $alpha: 0.4);
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.routes__table {
+  margin-bottom: 20px;
+}
+
+.routes__addons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.routes__footer {
+  display: flex;
+  justify-content: space-between;
 }

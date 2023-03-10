@@ -3,6 +3,8 @@
   width: 100%;
   text-align: center;
   position: fixed;
+  z-index: 2;
+
   top: 0;
 }
 
@@ -20,8 +22,8 @@
   justify-content: space-between;
   align-items: center;
 
-  background-color: $primary-black;
-  opacity: 0.8;
+  background-color: $primary-black-alpha;
+  backdrop-filter: blur(4px);
 }
 
 .drop-menu__button {
