@@ -31,21 +31,30 @@
   margin-bottom: 12px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .route-form__service-type {
-  display: inline-block;
+  display: flex;
   padding: 5px;
 
   border-radius: 4px;
+  fill: $primary-white;
 
-  & input {
-    visibility: hidden;
-  }
-
-  & input:checked + span {
+  & input:checked + .route-form__service-type-wrapper {
+    border-color: $secondary-brand-color;
+    fill: $secondary-brand-color;
     color: $secondary-brand-color;
   }
+}
+
+.route-form__service-type-wrapper {
+  border: 2px solid $primary-white;
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .route-form__select,
@@ -61,6 +70,7 @@
 
 .route-form__selector {
   height: 40px;
+  width: 100%;
   margin-bottom: 10px;
 
   font-size: 18px;
@@ -77,6 +87,15 @@
 
 .route-form__date {
   margin-bottom: 20px;
+}
+
+.route-form__btn {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  fill: $primary-white;
 }
 
 .routes__bus {
@@ -104,4 +123,10 @@
 .routes__footer {
   display: flex;
   justify-content: space-between;
+}
+
+.routes__choose-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }

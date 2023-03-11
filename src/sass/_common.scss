@@ -97,9 +97,24 @@ address {
   border-radius: 15px;
   color: $primary-white;
   background-color: transparent;
+  fill: $primary-white;
   &:hover,
   &:focus {
+    fill: $secondary-brand-color;
     color: $secondary-brand-color;
     border: 2px solid $secondary-brand-color;
   }
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
 }

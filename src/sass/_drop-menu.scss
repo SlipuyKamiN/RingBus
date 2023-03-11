@@ -33,10 +33,12 @@
   border: none;
 
   background-color: transparent;
-  background-image: url('../images/menu.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  fill: $secondary-brand-color;
+
+  &:hover,
+  &:focus {
+    fill: $primary-white;
+  }
 }
 
 .drop-menu__nav {

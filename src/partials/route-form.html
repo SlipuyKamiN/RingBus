@@ -10,12 +10,29 @@
             value="seat"
             id="seat"
             checked
+            class="visually-hidden"
           />
-          <span>Зайняти місце</span>
+          <span class="route-form__service-type-wrapper">
+            <svg viewBox="0 0 32 32" width="30px">
+              <use href="./images/icons.svg#icon-seatbelt"></use>
+            </svg>
+            Зайняти місце</span
+          >
         </label>
         <label for="parcel" class="route-form__service-type">
-          <input type="radio" name="service-type" value="parcel" id="parcel" />
-          <span>Відправити посилку</span>
+          <input
+            type="radio"
+            name="service-type"
+            value="parcel"
+            id="parcel"
+            class="visually-hidden"
+          />
+          <span class="route-form__service-type-wrapper">
+            <svg viewBox="0 0 32 32" width="30px">
+              <use href="./images/icons.svg#icon-parcel"></use>
+            </svg>
+            Відправити посилку</span
+          >
         </label>
       </div>
       <h2 class="route-form__title">Оберіть маршрут</h2>
@@ -51,7 +68,12 @@
           required
         />
       </div>
-      <button type="submit" class="btn">Шукати перевізника</button>
+      <button type="submit" class="btn route-form__btn">
+        <svg viewBox="0 0 32 32" width="26px">
+          <use href="./images/icons.svg#icon-search"></use>
+        </svg>
+        Шукати перевізника
+      </button>
     </form>
     <ul class="routes__list is-hidden" data-routes-list>
       <li class="routes__bus">
@@ -73,12 +95,17 @@
             <li>Плед</li>
             <li>Подушка</li>
           </ul>
-          <button type="button" class="btn" data-modal-open>Вибрати</button>
+          <button type="button" class="btn routes__choose-btn" data-modal-open>
+            Вибрати
+            <svg viewBox="0 0 32 32" width="20px">
+              <use href="./images/icons.svg#icon-btn-arrow"></use>
+            </svg>
+          </button>
         </div>
       </li>
       <li class="routes__bus">
         <table class="routes__table">
-          <th>MB2361</th>
+          <th>MB0808</th>
           <tr>
             <td>Час відправлення:</td>
             <td>01.03.2019 06:00</td>
@@ -95,7 +122,12 @@
             <li>Плед</li>
             <li>Подушка</li>
           </ul>
-          <button type="button" class="btn" data-modal-open>Вибрати</button>
+          <button type="button" class="btn routes__choose-btn" data-modal-open>
+            Вибрати
+            <svg viewBox="0 0 32 32" width="20px">
+              <use href="./images/icons.svg#icon-btn-arrow"></use>
+            </svg>
+          </button>
         </div>
       </li>
     </ul>

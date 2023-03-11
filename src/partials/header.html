@@ -1,12 +1,9 @@
 <header>
   <div class="header">
     <a href="./index.html" class="header__logo-link">
-      <img
-        class="logo"
-        src="./images/logo.png"
-        alt="RingBusLogo"
-        width="150px"
-      />
+      <svg width="150px" class="logo">
+        <use href="./images/icons.svg#icon-ring-bus-logo"></use>
+      </svg>
     </a>
     <ul class="header__list">
       <li class="header__item">Замовити місце</li>
@@ -25,18 +22,15 @@
   <div class="drop-menu">
     <div class="drop-menu__header">
       <a href="./index.html" class="drop-menu__logo-link">
-        <img
-          class="logo"
-          src="./images/logo.png"
-          alt="RingBusLogo"
-          width="150px"
-        />
+        <svg width="150px" class="logo">
+          <use href="./images/icons.svg#icon-ring-bus-logo"></use>
+        </svg>
       </a>
-      <button
-        type="button"
-        class="drop-menu__button"
-        data-open-close-btn
-      ></button>
+      <button type="button" class="drop-menu__button" data-open-close-btn>
+        <svg width="40px" height="40px">
+          <use href="./images/icons.svg#icon-menu"></use>
+        </svg>
+      </button>
     </div>
     <nav class="drop-menu__nav is-hidden" data-nav>
       <ul class="drop-menu__list">

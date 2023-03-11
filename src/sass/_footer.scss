@@ -9,8 +9,10 @@
 }
 
 .contacts__info {
-  color: $primary-white;
   margin-bottom: 12px;
+  text-align: center;
+
+  color: $primary-white;
 }
 
 .contacts__list {
@@ -36,10 +38,6 @@
   margin-bottom: 20px;
 
   font-size: 16px;
-  & img {
-    width: 100%;
-    margin-bottom: 10px;
-  }
 }
 
 .contacts__link--no-margin {
@@ -49,5 +47,40 @@
 .socials {
   display: flex;
   justify-content: center;
+  gap: 20px;
+}
+
+.socials__qr-icon {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+
+  border-radius: 15px;
+}
+
+.socials__item {
+  border-radius: 50%;
+
+  &:hover,
+  &:focus {
+    transform: scale(110%);
+    filter: saturate(2) brightness(1);
+  }
+}
+
+.contacts__phone-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
+}
+
+.socials__instagram-icon {
+  fill: #d82d7e;
+}
+
+.contacts__phone-icon-wrapper:hover,
+.contacts__phone-icon-wrapper:focus .socials__instagram-icon {
+  transform: scale(110%);
+  filter: saturate(2) brightness(1);
 }
