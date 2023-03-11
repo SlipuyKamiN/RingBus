@@ -1,0 +1,53 @@
+.contacts__title {
+  margin-bottom: 12px;
+
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+
+  color: $primary-white;
+}
+
+.contacts__info {
+  color: $primary-white;
+  margin-bottom: 12px;
+}
+
+.contacts__list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+}
+
+.contacts__card {
+  padding: 15px;
+  border-radius: 15px;
+
+  color: $primary-white;
+  background-color: $primary-black-alpha;
+  backdrop-filter: blur(3px);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.24), 0px 6px 6px rgba(0, 0, 0, 0.12),
+    2px 6px 8px rgba(0, 0, 0, 0.32);
+}
+
+.contacts__link {
+  display: block;
+  margin-bottom: 20px;
+
+  font-size: 16px;
+  & img {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+.contacts__link--no-margin {
+  margin-bottom: 0;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}

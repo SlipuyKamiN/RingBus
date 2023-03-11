@@ -1,6 +1,6 @@
-<section class="section route-form-section">
+<section class="section route-form-section" id="route-form">
   <div class="container container__route-form">
-    <form autocomplete="off" class="route-form">
+    <form autocomplete="off" class="route-form" data-routes-search-form>
       <h2 class="route-form__title">Оберіть послугу</h2>
       <div class="route-form__service">
         <label for="seat" class="route-form__service-type">
@@ -48,11 +48,12 @@
         <input
           type="date"
           class="route-form__selector route-form__selector--no-margin"
+          required
         />
       </div>
       <button type="submit" class="btn">Шукати перевізника</button>
     </form>
-    <ul class="routes__list is-hidden">
+    <ul class="routes__list is-hidden" data-routes-list>
       <li class="routes__bus">
         <table class="routes__table">
           <th>MB2361</th>
@@ -72,7 +73,7 @@
             <li>Плед</li>
             <li>Подушка</li>
           </ul>
-          <button type="button" class="btn">Вибрати</button>
+          <button type="button" class="btn" data-modal-open>Вибрати</button>
         </div>
       </li>
       <li class="routes__bus">
@@ -94,7 +95,7 @@
             <li>Плед</li>
             <li>Подушка</li>
           </ul>
-          <button type="button" class="btn">Вибрати</button>
+          <button type="button" class="btn" data-modal-open>Вибрати</button>
         </div>
       </li>
     </ul>

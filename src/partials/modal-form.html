@@ -1,26 +1,67 @@
-<div class="backdrop" data-modal>
+<div class="backdrop is-hidden" data-modal-backdrop>
   <div class="modal">
-    <button type="button" class="btn-modal" data-modal-close>X</button>
-    <h2>Залиште свої дані, з Вами зв'яжеться водій</h2>
-    <form class="modal-form" autocomplete="off">
-      <label for="name">Ім'я*</label>
-      <input type="text" name="name" id="name" />
-
-      <label for="tel">Телефон*</label>
-      <input type="tel" name="tel" id="tel" />
-
-      <label for="email">Інстаграм</label>
-      <input type="email" name="email" id="email" />
-
-      <label for="comment">Коментар</label>
-      <textarea
-        name="comment"
-        id="comment"
-        placeholder="Введіть текст"
-      ></textarea>
-
-      <button type="submit" class="btn">Скасувати</button>
-      <button type="submit" class="btn">Зайняти місце</button>
+    <table>
+      <tr>
+        <th>Ваш маршрут</th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>Чернівці</td>
+        <td>01.01.2021 06:00</td>
+      </tr>
+      <tr>
+        <td>Берлін</td>
+        <td>02.02.2022 06:00</td>
+      </tr>
+    </table>
+    <h2 class="modal__title">Залиште свої дані, з Вами зв'яжеться водій</h2>
+    <form class="modal-form" autocomplete="off" data-modal-form>
+      <div class="modal__form">
+        <label for="name">Ім'я*</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          class="modal__input"
+          required
+          pattern="[a-zA-Z\u0400-\u04ff]{3,30}"
+        />
+      </div>
+      <div class="modal__form">
+        <label for="tel">Телефон*</label>
+        <input
+          type="tel"
+          name="tel"
+          id="tel"
+          class="modal__input"
+          required
+          pattern="\+?[0-9\s\-\(\)]+"
+          minlength="10"
+          maxlength="13"
+        />
+      </div>
+      <div class="modal__form">
+        <label for="email">Інстаграм</label>
+        <input type="email" name="email" id="email" class="modal__input" />
+      </div>
+      <div class="modal__textarea">
+        <label for="comment">Коментар</label>
+        <textarea
+          name="comment"
+          id="comment"
+          placeholder="Введіть текст"
+        ></textarea>
+      </div>
+      <ul class="modal__btns">
+        <li>
+          <button type="submit" class="btn modal__btn" data-modal-cancel>
+            Скасувати
+          </button>
+        </li>
+        <li>
+          <button type="submit" class="btn modal__btn">Зайняти місце</button>
+        </li>
+      </ul>
     </form>
   </div>
 </div>

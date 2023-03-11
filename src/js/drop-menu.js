@@ -1,8 +1,9 @@
 const refs = {
-  openBtn: document.querySelector('[data-open-close-btn]'),
+  openCloseBtn: document.querySelector('[data-open-close-btn]'),
   dropMenu: document.querySelector('[data-nav]'),
 };
 
-refs.openBtn.addEventListener('click', () => {
+refs.openCloseBtn.addEventListener('click', event => {
+  event.preventDefault();
   refs.dropMenu.classList.toggle('is-hidden');
 });
