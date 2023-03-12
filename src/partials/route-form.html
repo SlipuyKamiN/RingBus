@@ -1,135 +1,168 @@
 <section class="section route-form-section" id="route-form">
-  <div class="container container__route-form">
-    <form autocomplete="off" class="route-form" data-routes-search-form>
-      <h2 class="route-form__title">Оберіть послугу</h2>
-      <div class="route-form__service">
-        <label for="seat" class="route-form__service-type">
-          <input
-            type="radio"
-            name="service-type"
-            value="seat"
-            id="seat"
-            checked
-            class="visually-hidden"
-          />
-          <span class="route-form__service-type-wrapper">
-            <svg viewBox="0 0 32 32" width="30px">
-              <use href="./images/icons.svg#icon-seatbelt"></use>
-            </svg>
-            Зайняти місце</span
-          >
-        </label>
-        <label for="parcel" class="route-form__service-type">
-          <input
-            type="radio"
-            name="service-type"
-            value="parcel"
-            id="parcel"
-            class="visually-hidden"
-          />
-          <span class="route-form__service-type-wrapper">
-            <svg viewBox="0 0 32 32" width="30px">
-              <use href="./images/icons.svg#icon-parcel"></use>
-            </svg>
-            Відправити посилку</span
-          >
-        </label>
-      </div>
-      <h2 class="route-form__title">Оберіть маршрут</h2>
-      <div class="route-form__select">
-        <label for="start-route" class="route-form__city">Звідки:</label>
-        <select
-          id="start-route"
-          name="start-route"
-          class="route-form__selector"
-        >
-          <option value="Chernivtsi" selected>Чернівці</option>
-          <option value="Ternopil">Тернопіль</option>
-          <option value="Lviv">Львів</option>
-          <option value="Krakiv">Краків</option>
-          <option value="Berlin">Берлін</option>
-          <option value="Dresden">Дрезден</option>
-        </select>
-        <label for="end-route" class="route-form__city">Куди:</label>
-        <select id="end-route" name="end-route" class="route-form__selector">
-          <option value="Chernivtsi">Чернівці</option>
-          <option value="Ternopil">Тернопіль</option>
-          <option value="Lviv">Львів</option>
-          <option value="Krakiv">Краків</option>
-          <option value="Berlin" selected>Берлін</option>
-          <option value="Dresden">Дрезден</option>
-        </select>
-      </div>
-      <div class="route-form__date">
-        <label for="start-date">Дата відправлення: </label>
-        <input
-          type="date"
-          class="route-form__selector route-form__selector--no-margin"
-          required
-        />
-      </div>
-      <button type="submit" class="btn route-form__btn">
-        <svg viewBox="0 0 32 32" width="26px">
-          <use href="./images/icons.svg#icon-search"></use>
-        </svg>
-        Шукати перевізника
-      </button>
-    </form>
-    <ul class="routes__list is-hidden" data-routes-list>
-      <li class="routes__bus">
-        <table class="routes__table">
-          <th>MB2361</th>
-          <tr>
-            <td>Час відправлення:</td>
-            <td>01.03.2019 06:00</td>
-          </tr>
-          <tr>
-            <td>Орієнтований час прибуття:</td>
-            <td>02.03.2019 01:00</td>
-          </tr>
-        </table>
-        <div class="routes__footer">
-          <ul class="routes__addons">
-            <li>WiFi</li>
-            <li>Розетки</li>
-            <li>Плед</li>
-            <li>Подушка</li>
-          </ul>
-          <button type="button" class="btn routes__choose-btn" data-modal-open>
-            Вибрати
-            <svg viewBox="0 0 32 32" width="20px">
-              <use href="./images/icons.svg#icon-btn-arrow"></use>
-            </svg>
-          </button>
+  <div class="container">
+    <div class="route-form__wrapper">
+      <form autocomplete="off" class="route-form" data-routes-search-form>
+        <div class="route-form__service">
+          <h2 class="route-form__title">Оберіть послугу</h2>
+          <label for="seat" class="route-form__service-type">
+            <input
+              type="radio"
+              name="service-type"
+              value="seat"
+              id="seat"
+              checked
+              class="visually-hidden"
+            />
+            <span class="route-form__service-type-wrapper">
+              <svg viewBox="0 0 32 32" width="30px">
+                <use href="./images/icons.svg#icon-seatbelt"></use>
+              </svg>
+              Зайняти місце</span
+            >
+          </label>
+          <label for="parcel" class="route-form__service-type">
+            <input
+              type="radio"
+              name="service-type"
+              value="parcel"
+              id="parcel"
+              class="visually-hidden"
+            />
+            <span class="route-form__service-type-wrapper">
+              <svg viewBox="0 0 32 32" width="30px">
+                <use href="./images/icons.svg#icon-parcel"></use>
+              </svg>
+              Відправити посилку</span
+            >
+          </label>
         </div>
-      </li>
-      <li class="routes__bus">
-        <table class="routes__table">
-          <th>MB0808</th>
-          <tr>
-            <td>Час відправлення:</td>
-            <td>01.03.2019 06:00</td>
-          </tr>
-          <tr>
-            <td>Орієнтований час прибуття:</td>
-            <td>02.03.2019 01:00</td>
-          </tr>
-        </table>
-        <div class="routes__footer">
-          <ul class="routes__addons">
-            <li>WiFi</li>
-            <li>Розетки</li>
-            <li>Плед</li>
-            <li>Подушка</li>
-          </ul>
-          <button type="button" class="btn routes__choose-btn" data-modal-open>
-            Вибрати
-            <svg viewBox="0 0 32 32" width="20px">
-              <use href="./images/icons.svg#icon-btn-arrow"></use>
-            </svg>
-          </button>
+        <div class="route-form__select">
+          <h2 class="route-form__title">Оберіть маршрут</h2>
+          <label for="start-route" class="route-form__city">Звідки:</label>
+          <select
+            id="start-route"
+            name="start-route"
+            class="route-form__selector"
+          >
+            <option value="Chernivtsi" selected>Чернівці</option>
+            <option value="Ternopil">Тернопіль</option>
+            <option value="Lviv">Львів</option>
+            <option value="Krakiv">Краків</option>
+            <option value="Berlin">Берлін</option>
+            <option value="Dresden">Дрезден</option>
+          </select>
+          <label for="end-route" class="route-form__city">Куди:</label>
+          <select id="end-route" name="end-route" class="route-form__selector">
+            <option value="Chernivtsi">Чернівці</option>
+            <option value="Ternopil">Тернопіль</option>
+            <option value="Lviv">Львів</option>
+            <option value="Krakiv">Краків</option>
+            <option value="Berlin" selected>Берлін</option>
+            <option value="Dresden">Дрезден</option>
+          </select>
+          <label for="start-date">Дата відправлення: </label>
+          <input type="date" class="route-form__selector" required />
         </div>
-      </li>
-    </ul>
+
+        <button type="submit" class="btn route-form__btn">
+          <svg viewBox="0 0 32 32" width="26px">
+            <use href="./images/icons.svg#icon-search"></use>
+          </svg>
+          <span>Шукати перевізника</span>
+        </button>
+      </form>
+      <ul class="routes__list is-hidden" data-routes-list>
+        <li class="routes__bus">
+          <table class="schedule__table">
+            <thead>
+              <tr class="schedule__row">
+                <th class="schedule__date">01 березня 06:00</th>
+                <th class="schedule__date">02 березня 01:00</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="schedule__row">
+                <td class="schedule__city">Чернівці</td>
+                <td class="schedule__city">Берлін</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="routes__footer">
+            <ul class="routes__addons">
+              <li class="routes__add-on">
+                <svg viewBox="0 0 32 32" width="25px">
+                  <use href="./images/icons.svg#icon-wifi"></use>
+                </svg>
+              </li>
+              <li class="routes__add-on">
+                <svg viewBox="0 0 32 32" width="25px">
+                  <use href="./images/icons.svg#icon-charger"></use>
+                </svg>
+              </li>
+              <li class="routes__add-on">
+                <svg viewBox="0 0 32 32" width="25px">
+                  <use href="./images/icons.svg#icon-sleeping-bed"></use>
+                </svg>
+              </li>
+            </ul>
+            <button
+              type="button"
+              class="btn routes__choose-btn"
+              data-modal-open
+            >
+              Вибрати
+              <svg viewBox="0 0 32 32" width="20px">
+                <use href="./images/icons.svg#icon-btn-arrow"></use>
+              </svg>
+            </button>
+          </div>
+        </li>
+        <li class="routes__bus">
+          <table class="schedule__table">
+            <thead>
+              <tr class="schedule__row">
+                <th class="schedule__date">01 березня 06:00</th>
+                <th class="schedule__date">02 березня 01:00</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="schedule__row">
+                <td class="schedule__city">Чернівці</td>
+                <td class="schedule__city">Берлін</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="routes__footer">
+            <ul class="routes__addons">
+              <li>
+                <svg viewBox="0 0 32 32" width="25px">
+                  <use href="./images/icons.svg#icon-wifi"></use>
+                </svg>
+              </li>
+              <li>
+                <svg viewBox="0 0 32 32" width="25px">
+                  <use href="./images/icons.svg#icon-charger"></use>
+                </svg>
+              </li>
+              <li>
+                <svg viewBox="0 0 32 32" width="25px">
+                  <use href="./images/icons.svg#icon-sleeping-bed"></use>
+                </svg>
+              </li>
+            </ul>
+            <button
+              type="button"
+              class="btn routes__choose-btn"
+              data-modal-open
+            >
+              Вибрати
+              <svg viewBox="0 0 32 32" width="20px">
+                <use href="./images/icons.svg#icon-btn-arrow"></use>
+              </svg>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </section>

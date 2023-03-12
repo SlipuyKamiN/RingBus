@@ -1,9 +1,13 @@
+.footer {
+  padding: 60px 0;
+}
+
 .contacts__title {
   margin-bottom: 12px;
 
   text-align: center;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 28px;
 
   color: $primary-white;
 }
@@ -20,6 +24,11 @@
   flex-direction: column;
   gap: 30px;
   text-align: center;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .contacts__card {
@@ -53,6 +62,7 @@
 .socials__qr-icon {
   width: 100%;
   height: 100%;
+  max-width: 300px;
   margin-bottom: 10px;
 
   border-radius: 15px;

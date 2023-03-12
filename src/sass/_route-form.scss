@@ -1,16 +1,19 @@
 .route-form {
   margin-bottom: 20px;
-
-  text-align: center;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    div {
+      width: 50%;
+    }
+  }
 }
 
-.route-form-section {
-  padding: 40px 15px;
-}
-
-.container__route-form {
+.route-form__wrapper {
   border-radius: 15px;
   padding: 15px;
+
+  text-align: center;
 
   background-color: $primary-black-alpha;
   color: $primary-white;
@@ -19,24 +22,32 @@
     2px 6px 8px rgba(0, 0, 0, 0.32);
 }
 
+.route-form-section {
+  padding: 60px 0;
+}
+
 .route-form__title {
-  margin-bottom: 12px;
+  width: 100%;
 
   text-align: center;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 28px;
 }
 
 .route-form__service {
   margin-bottom: 12px;
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
   justify-content: space-between;
+  @media screen and (min-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 .route-form__service-type {
+  cursor: pointer;
   display: flex;
-  padding: 5px;
 
   border-radius: 4px;
   fill: $primary-white;
@@ -57,23 +68,20 @@
   gap: 5px;
 }
 
-.route-form__select,
-.route-form__date {
+.route-form__select {
   display: flex;
   flex-direction: column;
   text-align: start;
-}
-
-.route-form__city {
-  margin-bottom: 4px;
+  gap: 5px;
+  margin-bottom: 20px;
 }
 
 .route-form__selector {
   height: 40px;
   width: 100%;
-  margin-bottom: 10px;
+  padding: 5px 10px;
 
-  font-size: 18px;
+  font-size: 16px;
   text-transform: uppercase;
 
   border-radius: 4px;
@@ -81,21 +89,41 @@
   background-color: $primary-white-alpha;
 }
 
-.route-form__selector--no-margin {
-  margin-bottom: 0px;
-}
-
-.route-form__date {
-  margin-bottom: 20px;
-}
-
 .route-form__btn {
+  position: relative;
   display: flex;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
   gap: 10px;
   fill: $primary-white;
+}
+
+.route-form__btn {
+  svg {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    height: 24px;
+    width: 20px;
+  }
+
+  span {
+    margin-left: 15px;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    border-color: $primary-white-alpha;
+    color: $primary-white-alpha;
+  }
+
+  &:disabled svg {
+    fill: transparent;
+    background: #eaf7ff;
+    box-shadow: 0 0 15px #bce4ff;
+    animation: blink 6s infinite;
+  }
 }
 
 .routes__bus {
@@ -110,14 +138,39 @@
   }
 }
 
-.routes__table {
+.schedule__table {
   margin-bottom: 20px;
+  width: 100%;
+}
+
+.schedule__row {
+  display: flex;
+  justify-content: space-around;
+  @media screen and (min-width: 768px) {
+    justify-content: space-between;
+
+    font-size: 18px;
+  }
+}
+
+.schedule__date {
+  @media screen and (min-width: 1200px) {
+    font-size: 20px;
+  }
 }
 
 .routes__addons {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 5px;
+  fill: $primary-white;
+  @media screen and (min-width: 768px) {
+    gap: 10px;
+    & svg {
+      width: 30px;
+    }
+  }
 }
 
 .routes__footer {

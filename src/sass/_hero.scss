@@ -1,10 +1,21 @@
-.title {
-  color: $primary-white;
-  margin: 100px auto 0;
-  text-align: center;
+.hero-section {
+  padding: 120px 0 0;
+}
 
+.title {
+  margin: 0 auto;
+  max-width: 450px;
+
+  text-align: center;
   font-size: 26px;
   line-height: 1.6;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+
+  color: $primary-white;
+
+  @media screen and (min-width: 1200px) {
+    max-width: 768px;
+    font-size: 44px;
+  }
 }

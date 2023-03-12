@@ -1,3 +1,33 @@
 .header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  height: 60px;
+
+  background-color: $primary-black-alpha;
+  backdrop-filter: blur(4px);
+  color: $primary-white;
+}
+
+.header__wrapper {
   display: none;
+
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.header__list,
+.header__contacts {
+  display: flex;
+  gap: 50px;
+}
+
+.header__contact a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

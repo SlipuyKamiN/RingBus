@@ -1,11 +1,15 @@
 .drop-menu {
-  // display: none;
-  width: 100%;
+  display: block;
+  // width: 100%;
+  height: 100%;
   text-align: center;
-  position: fixed;
+  position: relative;
   z-index: 2;
 
   top: 0;
+  @media screen and (min-width: 1200px) {
+    display: none;
+  }
 }
 
 .is-hidden {
@@ -13,17 +17,17 @@
 }
 
 .drop-menu__header {
-  position: fixed;
+  // position: fixed;
   display: flex;
-  width: 100%;
-  height: 60px;
-  padding: 0px 15px;
+  // width: 100%;
+  height: 100%;
+  // padding: 0px 15px;
 
   justify-content: space-between;
   align-items: center;
 
-  background-color: $primary-black-alpha;
-  backdrop-filter: blur(4px);
+  // background-color: $primary-black-alpha;
+  // backdrop-filter: blur(4px);
 }
 
 .drop-menu__button {
@@ -45,9 +49,11 @@
   // display: none;
   position: absolute;
   top: 60px;
+  left: 0px;
   width: 100%;
   padding: 48px 40px;
 
+  color: $primary-black;
   background-color: $primary-white;
 }
 
