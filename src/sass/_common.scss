@@ -246,3 +246,26 @@ address {
     left: 10px;
   }
 }
+
+@keyframes title {
+  0% {
+    opacity: 1;
+    right: 130px;
+  }
+  48% {
+    opacity: 1;
+    right: 130px;
+  }
+  52% {
+    opacity: 0;
+    right: 30px;
+  }
+  70% {
+    opacity: 0;
+    right: 30px;
+  }
+  100% {
+    opacity: 1;
+    right: 30px;
+  }
+}

@@ -116,13 +116,19 @@
     pointer-events: none;
     border-color: $primary-white-alpha;
     color: $primary-white-alpha;
-  }
 
-  &:disabled svg {
-    fill: transparent;
-    background: #eaf7ff;
-    box-shadow: 0 0 15px #bce4ff;
-    animation: blink 6s infinite;
+    span {
+      animation: title 2s linear 0.7s infinite;
+      text-shadow: 0 0 6px #bce4ff;
+    }
+
+    svg {
+      border-radius: 2px;
+      fill: transparent;
+      background: #bce4ff;
+      box-shadow: 0 0 15px #bce4ff;
+      animation: blink 4s infinite;
+    }
   }
 }
 
