@@ -20,11 +20,11 @@ const foo = async () => {
   const rows = await sheet.getRows();
 
   console.log(rows[0].end_city);
-  console.log(Number(rows[0].in_lviv));
+  console.log(rows[0].in_lviv);
   console.log(rows[0].in_berlin);
 
-  //   rows[0].in_lviv = '20:30';
-  //   rows[0].save();
+  rows[0].in_lviv = '20:30';
+  rows[0].save();
 };
 
 foo();
