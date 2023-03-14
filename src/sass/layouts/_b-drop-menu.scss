@@ -1,6 +1,5 @@
 .drop-menu {
   display: block;
-  // width: 100%;
   height: 100%;
   text-align: center;
   position: relative;
@@ -17,20 +16,15 @@
 }
 
 .drop-menu__header {
-  // position: fixed;
   display: flex;
-  // width: 100%;
   height: 100%;
-  // padding: 0px 15px;
 
   justify-content: space-between;
   align-items: center;
-
-  // background-color: $primary-black-alpha;
-  // backdrop-filter: blur(4px);
 }
 
 .drop-menu__button {
+  cursor: pointer;
   width: 40px;
   height: 40px;
   padding: 0;

@@ -1,0 +1,113 @@
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+    left: 10px;
+  }
+  45% {
+    opacity: 1;
+    left: 150px;
+  }
+  50% {
+    opacity: 0;
+    left: 10px;
+  }
+  51% {
+    left: 10px;
+  }
+  55% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  85% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+    left: 10px;
+  }
+  95% {
+    opacity: 1;
+    left: 150px;
+  }
+  96% {
+    left: 10px;
+  }
+  100% {
+    opacity: 0;
+    left: 10px;
+  }
+}
+
+@keyframes title {
+  0% {
+    opacity: 1;
+    right: 130px;
+  }
+  48% {
+    opacity: 1;
+    right: 130px;
+  }
+  52% {
+    opacity: 0;
+    right: 30px;
+  }
+  70% {
+    opacity: 0;
+    right: 30px;
+  }
+  100% {
+    opacity: 1;
+    right: 30px;
+  }
+}

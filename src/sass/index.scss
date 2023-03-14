@@ -1,10 +1,12 @@
-@import './vars';
-@import './common';
+@import '~node_modules/modern-normalize/modern-normalize.css';
+@import './utils/vars';
+@import './base/reset';
+@import './utils/utils';
+@import './base/common';
 
-@import './header';
-@import './drop-menu';
-
-@import './hero';
-@import './route-form';
-@import './footer';
-@import './modal-form';
+@import './layouts/a-header';
+@import './layouts/b-drop-menu';
+@import './layouts/c-hero';
+@import './layouts/d-route-form';
+@import './layouts/e-footer';
+@import './layouts/f-modal-form';
