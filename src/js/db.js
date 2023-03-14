@@ -1,11 +1,8 @@
-const { GoogleSpreadsheet } = require('google-spreadsheet');
+import { GoogleSpreadsheet } from 'google-spreadsheet';
 import keys from '../../credentials.json';
 const doc = new GoogleSpreadsheet(
   '1s1Ap9gORGsVw-An5TJGBEaXroJ3n0yBhluvtRM85D6M'
 );
-
-const inBerlin = 'In Berlin';
-const inLviv = 'In Lviv';
 
 // Initialize Auth - see https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
 const foo = async () => {
