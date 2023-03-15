@@ -61,108 +61,26 @@
             <option value="Dresden">Дрезден</option>
           </select>
           <label for="start-date">Дата відправлення: </label>
-          <input type="date" class="route-form__selector" required />
+          <input
+            type="date"
+            class="route-form__selector"
+            required
+            data-date-selector
+          />
         </div>
 
-        <button type="submit" class="btn route-form__btn">
+        <button
+          type="submit"
+          class="btn route-form__btn"
+          data-routes-search-btn
+        >
           <svg viewBox="0 0 32 32" width="26px">
             <use href="./images/icons.svg#icon-search"></use>
           </svg>
           <span>Шукати перевізника</span>
         </button>
       </form>
-      <ul class="routes__list is-hidden" data-routes-list>
-        <li class="routes__bus">
-          <table class="schedule__table">
-            <thead>
-              <tr class="schedule__row">
-                <th class="schedule__date">01 березня 06:00</th>
-                <th class="schedule__date">02 березня 01:00</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="schedule__row">
-                <td class="schedule__city">Чернівці</td>
-                <td class="schedule__city">Берлін</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="routes__footer">
-            <ul class="routes__addons">
-              <li class="routes__add-on">
-                <svg viewBox="0 0 32 32" width="25px">
-                  <use href="./images/icons.svg#icon-wifi"></use>
-                </svg>
-              </li>
-              <li class="routes__add-on">
-                <svg viewBox="0 0 32 32" width="25px">
-                  <use href="./images/icons.svg#icon-charger"></use>
-                </svg>
-              </li>
-              <li class="routes__add-on">
-                <svg viewBox="0 0 32 32" width="25px">
-                  <use href="./images/icons.svg#icon-sleeping-bed"></use>
-                </svg>
-              </li>
-            </ul>
-            <button
-              type="button"
-              class="btn routes__choose-btn"
-              data-modal-open
-            >
-              Вибрати
-              <svg viewBox="0 0 32 32" width="20px">
-                <use href="./images/icons.svg#icon-btn-arrow"></use>
-              </svg>
-            </button>
-          </div>
-        </li>
-        <li class="routes__bus">
-          <table class="schedule__table">
-            <thead>
-              <tr class="schedule__row">
-                <th class="schedule__date">01 березня 06:00</th>
-                <th class="schedule__date">02 березня 01:00</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="schedule__row">
-                <td class="schedule__city">Чернівці</td>
-                <td class="schedule__city">Берлін</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="routes__footer">
-            <ul class="routes__addons">
-              <li>
-                <svg viewBox="0 0 32 32" width="25px">
-                  <use href="./images/icons.svg#icon-wifi"></use>
-                </svg>
-              </li>
-              <li>
-                <svg viewBox="0 0 32 32" width="25px">
-                  <use href="./images/icons.svg#icon-charger"></use>
-                </svg>
-              </li>
-              <li>
-                <svg viewBox="0 0 32 32" width="25px">
-                  <use href="./images/icons.svg#icon-sleeping-bed"></use>
-                </svg>
-              </li>
-            </ul>
-            <button
-              type="button"
-              class="btn routes__choose-btn"
-              data-modal-open
-            >
-              Вибрати
-              <svg viewBox="0 0 32 32" width="20px">
-                <use href="./images/icons.svg#icon-btn-arrow"></use>
-              </svg>
-            </button>
-          </div>
-        </li>
-      </ul>
+      <ul class="routes__list" data-routes-list></ul>
     </div>
   </div>
 </section>

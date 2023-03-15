@@ -10,6 +10,6 @@ const toggleBackdrop = event => {
   refs.backdrop.classList.toggle('is-hidden');
 };
 
-refs.modalOpenBtn.addEventListener('click', toggleBackdrop);
+// refs.modalOpenBtn.addEventListener('click', toggleBackdrop);
 refs.modalCancelBtn.addEventListener('click', toggleBackdrop);
 refs.modalForm.addEventListener('submit', toggleBackdrop);
