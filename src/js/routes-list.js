@@ -20,15 +20,12 @@ let dateOptions = {
   locale: {
     firstDayOfWeek: 1,
   },
-  enable: [
-    function (date) {
-      return date.getDay() === 4;
-    },
-  ],
+  enable: [],
 };
 const dateSelector = flatpickr(refs.dateForm, dateOptions);
 
 const setAvailableData = async listType => {
+  refs.dateForm.disabled = true;
   let ringBuseslist = await listType();
   let availableDays = [];
 
@@ -44,6 +41,7 @@ const setAvailableData = async listType => {
   });
 
   dateSelector.set('enable', availableDays);
+  refs.dateForm.disabled = false;
 };
 const calculateTripData = (endTime, startTime) => {
   const depart = new Date(`${refs.dateForm.value} ${startTime}`).getTime();
@@ -158,6 +156,8 @@ const renderListMarkup = async listType => {
 
   refs.routesList.innerHTML = markup.join('');
 };
+
+setAvailableData(getRingRoutesList);
 
 refs.routesSearchForm.addEventListener('input', handleInputChanges);
 refs.routesSearchForm.addEventListener('submit', handleSearchRoutes);
