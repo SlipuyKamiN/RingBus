@@ -43,27 +43,40 @@
             id="start-route"
             name="start-route"
             class="route-form__selector"
+            data-start-route-select
           >
-            <option value="Chernivtsi" selected>Чернівці</option>
-            <option value="Ternopil">Тернопіль</option>
-            <option value="Lviv">Львів</option>
-            <option value="Krakiv">Краків</option>
-            <option value="Berlin">Берлін</option>
-            <option value="Dresden">Дрезден</option>
-          </select>
-          <label for="end-route" class="route-form__city">Куди:</label>
-          <select id="end-route" name="end-route" class="route-form__selector">
             <option value="Chernivtsi">Чернівці</option>
             <option value="Ternopil">Тернопіль</option>
             <option value="Lviv">Львів</option>
             <option value="Krakiv">Краків</option>
             <option value="Berlin" selected>Берлін</option>
             <option value="Dresden">Дрезден</option>
+            <option value="Empty" class="is-hidden" selected>
+              Місто відправлення
+            </option>
+          </select>
+          <label for="end-route" class="route-form__city">Куди:</label>
+          <select
+            id="end-route"
+            name="end-route"
+            class="route-form__selector"
+            data-end-route-select
+          >
+            <option value="NovaPoshta" class="is-hidden">Новою Поштою</option>
+            <option value="Chernivtsi">Чернівці</option>
+            <option value="Ternopil">Тернопіль</option>
+            <option value="Lviv">Львів</option>
+            <option value="Krakiv">Краків</option>
+            <option value="Berlin">Берлін</option>
+            <option value="Dresden">Дрезден</option>
+            <option value="Empty" class="is-hidden" selected>
+              Місто прибуття
+            </option>
           </select>
           <label for="start-date">Дата відправлення: </label>
           <input
             type="date"
-            class="route-form__selector"
+            class="route-form__selector route-form__selector--disabled"
             placeholder="Виберіть доступну дату"
             required
             data-date-selector

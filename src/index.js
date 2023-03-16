@@ -1,5 +1,5 @@
 import './js/drop-menu';
-import './js/search-routes';
+import './js/on-search-form';
+import './js/render-routes-list';
+import './js/handle-order';
 import './js/modal-form';
-import './js/db';
-import './js/routes-list';

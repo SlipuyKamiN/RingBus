@@ -87,6 +87,9 @@
   border-radius: 4px;
   color: $primary-black;
   background-color: $primary-white-alpha;
+  &:disabled {
+    background-color: $primary-black-alpha;
+  }
 }
 
 .route-form__btn {

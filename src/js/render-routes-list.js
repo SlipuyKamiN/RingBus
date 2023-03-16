@@ -1,5 +1,5 @@
-import flatpickr from 'flatpickr';
-import 'flatpickr/dist/flatpickr.min.css';
+// import flatpickr from 'flatpickr';
+// import 'flatpickr/dist/flatpickr.min.css';
 import { getRingRoutesList, getRingRoutesReverseList } from './handle-sheets';
 
 const refs = {
@@ -11,38 +11,6 @@ const refs = {
   searchBtn: document.querySelector('[data-routes-search-btn]'),
 };
 
-let dateOptions = {
-  time_24hr: true,
-  defaultDate: new Date(),
-  minuteIncrement: 1,
-  minDate: 'today',
-  maxDate: new Date().fp_incr(28),
-  locale: {
-    firstDayOfWeek: 1,
-  },
-  enable: [],
-};
-const dateSelector = flatpickr(refs.dateForm, dateOptions);
-
-const setAvailableData = async listType => {
-  refs.dateForm.disabled = true;
-  let ringBuseslist = await listType();
-  let availableDays = [];
-
-  ringBuseslist.map(bus => {
-    let startCityTime = eval(`bus.in_${refs.startCity.value}`);
-    let endCityTime = eval(`bus.in_${refs.endCity.value}`);
-
-    if (startCityTime && endCityTime) {
-      availableDays.push(function (date) {
-        return date.getDay() === Number(bus.start_day);
-      });
-    }
-  });
-
-  dateSelector.set('enable', availableDays);
-  refs.dateForm.disabled = false;
-};
 const calculateTripData = (endTime, startTime) => {
   const depart = new Date(`${refs.dateForm.value} ${startTime}`).getTime();
   let between = endTime.slice(0, -3) - startTime.slice(0, -3);
@@ -57,14 +25,6 @@ const calculateTripData = (endTime, startTime) => {
   const arriveTime = new Date(arrive).toLocaleString().slice(0, -3);
 
   return { departTime, arriveTime };
-};
-const handleInputChanges = () => {
-  if (refs.startCity.selectedIndex > refs.endCity.selectedIndex) {
-    setAvailableData(getRingRoutesReverseList);
-    return;
-  }
-
-  setAvailableData(getRingRoutesList);
 };
 const handleSearchRoutes = async event => {
   event.preventDefault();
@@ -157,7 +117,4 @@ const renderListMarkup = async listType => {
   refs.routesList.innerHTML = markup.join('');
 };
 
-setAvailableData(getRingRoutesList);
-
-refs.routesSearchForm.addEventListener('input', handleInputChanges);
 refs.routesSearchForm.addEventListener('submit', handleSearchRoutes);
