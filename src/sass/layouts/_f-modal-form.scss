@@ -100,6 +100,12 @@
   &:focus {
     background-color: $primary-black-alpha;
   }
+  &:disabled {
+    cursor: wait;
+    background-color: $primary-black-alpha;
+    color: $primary-white-alpha;
+    border-color: $primary-white-alpha;
+  }
 }
 
 .socials--add-margin-bottom {

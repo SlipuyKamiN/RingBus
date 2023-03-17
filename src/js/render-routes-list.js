@@ -1,15 +1,16 @@
 import { getRingRoutesList, getRingRoutesReverseList } from './handle-sheets';
 import { handleCardClick } from './modal-form';
+import { refs } from './elements';
 
-const refs = {
-  startCity: document.querySelector('#start-route'),
-  endCity: document.querySelector('#end-route'),
-  dateForm: document.querySelector('[data-date-selector]'),
-  routesSearchForm: document.querySelector('[data-routes-search-form]'),
-  routesList: document.querySelector('[data-routes-list]'),
-  searchBtn: document.querySelector('[data-routes-search-btn]'),
-  routeCards: [],
-};
+// const refs = {
+//   startCity: document.querySelector('#start-route'),
+//   endCity: document.querySelector('#end-route'),
+//   dateForm: document.querySelector('[data-date-selector]'),
+//   routesSearchForm: document.querySelector('[data-routes-search-form]'),
+//   routesList: document.querySelector('[data-routes-list]'),
+//   searchBtn: document.querySelector('[data-routes-search-btn]'),
+//   routeCards: [],
+// };
 
 const calculateTripData = (endTime, startTime) => {
   const depart = new Date(`${refs.dateForm.value} ${startTime}`).getTime();

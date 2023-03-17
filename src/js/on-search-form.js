@@ -2,18 +2,19 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import { getRingRoutesList, getRingRoutesReverseList } from './handle-sheets';
 import _debounce from 'lodash.debounce';
+import { refs } from './elements';
 
-const refs = {
-  startCity: document.querySelector('[data-start-route-select]'),
-  endCity: document.querySelector('[data-end-route-select]'),
-  dateForm: document.querySelector('[data-date-selector]'),
-  routesSearchForm: document.querySelector('[data-routes-search-form]'),
-  routesList: document.querySelector('[data-routes-list]'),
-  searchBtn: document.querySelector('[data-routes-search-btn]'),
-  novaPoshtaOption: document.querySelector('option[value=NovaPoshta]'),
-  parcelRadioBtn: document.querySelectorAll('#parcel'),
-  seatRadioBtn: document.querySelectorAll('#seat'),
-};
+// const refs = {
+//   startCity: document.querySelector('[data-start-route-select]'),
+//   endCity: document.querySelector('[data-end-route-select]'),
+//   dateForm: document.querySelector('[data-date-selector]'),
+//   routesSearchForm: document.querySelector('[data-routes-search-form]'),
+//   routesList: document.querySelector('[data-routes-list]'),
+//   searchBtn: document.querySelector('[data-routes-search-btn]'),
+//   novaPoshtaOption: document.querySelector('option[value=NovaPoshta]'),
+//   parcelRadioBtn: document.querySelectorAll('#parcel'),
+//   seatRadioBtn: document.querySelectorAll('#seat'),
+// };
 
 refs.dateForm.disabled = true;
 

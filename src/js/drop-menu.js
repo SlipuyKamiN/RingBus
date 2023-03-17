@@ -1,9 +1,11 @@
-const refs = {
-  openCloseBtn: document.querySelector('[data-open-close-btn]'),
-  dropMenu: document.querySelector('[data-nav]'),
-};
+import { refs } from './elements';
 
-refs.openCloseBtn.addEventListener('click', event => {
+// const refs = {
+//   openCloseDropMenuBtn: document.querySelector('[data-open-close-btn]'),
+//   dropMenu: document.querySelector('[data-nav]'),
+// };
+
+refs.openCloseDropMenuBtn.addEventListener('click', event => {
   event.preventDefault();
   refs.dropMenu.classList.toggle('is-hidden');
 });

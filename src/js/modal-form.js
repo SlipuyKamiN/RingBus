@@ -1,15 +1,22 @@
-import { getRingRoutesList } from './handle-sheets';
+import { getRingRoutesList, getOrdersList } from './handle-sheets';
+import { refs } from './elements';
+import _throttle from 'lodash.throttle';
 
-const refs = {
-  backdrop: document.querySelector('[data-modal-backdrop]'),
-  modalOpenBtn: document.querySelector('[data-modal-open]'),
-  modalCancelBtn: document.querySelector('[data-modal-cancel]'),
-  modalForm: document.querySelector('[data-modal-form]'),
-  phoneLink: document.querySelector('[data-phone-link]'),
-  viberLink: document.querySelector('[data-viber-link]'),
-  telegramLink: document.querySelector('[data-telegram-link]'),
-  whatsappLink: document.querySelector('[data-whatsapp-link]'),
-  instagramLink: document.querySelector('[data-instagram-link]'),
+// const refs = {
+//   backdrop: document.querySelector('[data-modal-backdrop]'),
+//   modalOpenBtn: document.querySelector('[data-modal-open]'),
+//   modalCancelBtn: document.querySelector('[data-modal-cancel]'),
+//   modalForm: document.querySelector('[data-modal-form]'),
+//   modalPhoneLink: document.querySelector('[data-phone-link]'),
+//   modalViberLink: document.querySelector('[data-viber-link]'),
+//   modalTelegramLink: document.querySelector('[data-telegram-link]'),
+//   modalWhatsappLink: document.querySelector('[data-whatsapp-link]'),
+//   modalInstagramLink: document.querySelector('[data-instagram-link]'),
+// };
+
+let orderInfo = {
+  customerName: '',
+  customerPhone: '',
 };
 
 export const handleCardClick = event => {
@@ -24,23 +31,27 @@ export const handleCardClick = event => {
 };
 const renderModalRouteInfo = card => {
   const modalTable = document.querySelector('[data-modal-table]');
-  const routeId = card.querySelector('.routes__id');
-  const routeBeginCity = card.querySelector('.schedule__city');
-  const routeEndCity = card.querySelector('.schedule__city--right');
-  const routeBeginDate = card.querySelector('.schedule__date');
-  const routeEndDate = card.querySelector('.schedule__date--right');
+  orderInfo.routeId = card.querySelector('.routes__id').textContent;
+  orderInfo.routeBeginCity = card.querySelector('.schedule__city').textContent;
+  orderInfo.routeEndCity = card.querySelector(
+    '.schedule__city--right'
+  ).textContent;
+  orderInfo.routeBeginDate = card.querySelector('.schedule__date').textContent;
+  orderInfo.routeEndDate = card.querySelector(
+    '.schedule__date--right'
+  ).textContent;
   const markup = `
   <tr>
   <th>Ваш маршрут</th>
-  <th class="modal__route-id">${routeId.textContent}</th>
+  <th class="modal__route-id">${orderInfo.routeId}</th>
 </tr>
 <tr>
-  <td>${routeBeginCity.textContent}</td>
-  <td>${routeBeginDate.textContent}</td>
+  <td>${orderInfo.routeBeginCity}</td>
+  <td>${orderInfo.routeBeginDate}</td>
 </tr>
 <tr>
-  <td>${routeEndCity.textContent}</td>
-  <td>${routeEndDate.textContent}</td>
+  <td>${orderInfo.routeEndCity}</td>
+  <td>${orderInfo.routeEndDate}</td>
 </tr>
   `;
   modalTable.innerHTML = markup;
@@ -58,18 +69,44 @@ const setContactsInfo = async card => {
     bus => bus.RingBus_ID === routeId.textContent
   );
 
-  refs.phoneLink.href = `tel:+${selectedRow.viber}`;
-  refs.viberLink.href = `viber://chat?number=+${selectedRow.viber}`;
-  refs.telegramLink.href = `https://t.me/+${selectedRow.telegram}`;
-  refs.whatsappLink.href = `https://wa.me/+${selectedRow.whatsapp}`;
-  refs.instagramLink.href = `https://instagram.com/${selectedRow.instagram}`;
-  refs.phoneLink.title = `+${selectedRow.viber}`;
-  refs.viberLink.title = `+${selectedRow.viber}`;
-  refs.telegramLink.title = `+${selectedRow.telegram}`;
-  refs.whatsappLink.title = `+${selectedRow.whatsapp}`;
-  refs.instagramLink.title = `https://instagram.com/${selectedRow.instagram}`;
+  refs.modalPhoneLink.href = `tel:+${selectedRow.viber}`;
+  refs.modalViberLink.href = `viber://chat?number=+${selectedRow.viber}`;
+  refs.modalTelegramLink.href = `https://t.me/+${selectedRow.telegram}`;
+  refs.modalWhatsappLink.href = `https://wa.me/+${selectedRow.whatsapp}`;
+  refs.modalInstagramLink.href = `https://instagram.com/${selectedRow.instagram}`;
+  refs.modalPhoneLink.title = `+${selectedRow.viber}`;
+  refs.modalViberLink.title = `+${selectedRow.viber}`;
+  refs.modalTelegramLink.title = `+${selectedRow.telegram}`;
+  refs.modalWhatsappLink.title = `+${selectedRow.whatsapp}`;
+  refs.modalInstagramLink.title = `https://instagram.com/${selectedRow.instagram}`;
+};
+const handleFormSubmit = async event => {
+  event.preventDefault();
+  refs.modalSubmitBtn.disabled = true;
+  try {
+    await updateOrderList();
+    refs.modalForm.reset();
+    refs.routesSearchForm.reset();
+    refs.routesList.innerHTML = '';
+    orderInfo = {};
+    toggleBackdrop(event);
+    refs.modalSubmitBtn.disabled = false;
+  } catch (error) {
+    console.log(error);
+  }
+};
+const updateOrderInfo = () => {
+  const { name, tel, comment } = refs.modalForm.elements;
+
+  orderInfo.customerName = name.value;
+  orderInfo.customerPhone = tel.value;
+  orderInfo.customerComment = comment.value;
+};
+const updateOrderList = async () => {
+  const sundar = await getOrdersList();
+  await sundar.addRow({ ...orderInfo });
 };
 
-// refs.modalOpenBtn.addEventListener('click', toggleBackdrop);
+refs.modalForm.addEventListener('input', _throttle(updateOrderInfo, 500));
 refs.modalCancelBtn.addEventListener('click', toggleBackdrop);
-// refs.modalForm.addEventListener('submit', toggleBackdrop);
+refs.modalForm.addEventListener('submit', handleFormSubmit);

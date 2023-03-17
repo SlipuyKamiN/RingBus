@@ -56,7 +56,7 @@ export const getOrdersList = async () => {
   const sheet = doc.sheetsByIndex[2];
   rows = await sheet.getRows();
 
-  return rows;
+  return sheet;
 };
 
 // export const getSheet = {
