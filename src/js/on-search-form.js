@@ -36,12 +36,12 @@ const filterDirections = {
   reset() {
     for (let i = 1; i < this.options.length; i += 1) {
       const el = this.options[i];
-      el.classList.remove('is-hidden');
+      el.removeAttribute('hidden');
     }
     const emptyOptions = refs.routesSearchForm.querySelectorAll(
       'option[value=Empty]'
     );
-    emptyOptions.forEach(o => o.classList.add('is-hidden'));
+    emptyOptions.forEach(o => o.setAttribute('hidden', 'hidden'));
 
     if (refs.startCity.value === refs.endCity.value) {
       refs.endCity.selectedIndex = this.options.length - 1;
@@ -50,51 +50,50 @@ const filterDirections = {
   seatToUkraine() {
     for (let i = 1; i < this.options.length; i += 1) {
       const el = this.options[i];
-      el.classList.remove('is-hidden');
+      el.removeAttribute('hidden');
     }
     refs.novaPoshtaOption.removeAttribute('selected');
-    refs.novaPoshtaOption.classList.add('is-hidden');
+    refs.novaPoshtaOption.setAttribute('hidden', 'hidden');
   },
   seatFromUkraine() {
     for (let i = 0; i <= UACityIndex + 1; i += 1) {
       const el = this.options[i];
-      el.classList.add('is-hidden');
+      el.setAttribute('hidden', 'hidden');
     }
     refs.novaPoshtaOption.removeAttribute('selected');
-    refs.novaPoshtaOption.classList.add('is-hidden');
+    refs.novaPoshtaOption.setAttribute('hidden', 'hidden');
     return;
   },
   parcelToUkraine() {
     for (let i = 0; i < this.options.length; i += 1) {
       const el = this.options[i];
-      el.classList.remove('is-hidden');
+      el.removeAttribute('hidden');
     }
-
+    refs.novaPoshtaOption.removeAttribute('hidden');
     refs.novaPoshtaOption.setAttribute('selected', 'true');
-    refs.novaPoshtaOption.classList.remove('is-hidden');
     return;
   },
   parcelFromUkraine() {
     for (let i = 0; i <= UACityIndex + 1; i += 1) {
       const el = this.options[i];
-      el.classList.add('is-hidden');
+      el.setAttribute('hidden', 'hidden');
     }
 
     refs.novaPoshtaOption.removeAttribute('selected');
-    refs.novaPoshtaOption.classList.add('is-hidden');
+    refs.novaPoshtaOption.setAttribute('hidden', 'hidden');
     return;
   },
   hideEqualCity() {
     const emptyOptions = refs.routesSearchForm.querySelectorAll(
       'option[value=Empty]'
     );
-    emptyOptions.forEach(o => o.classList.add('is-hidden'));
+    emptyOptions.forEach(o => o.setAttribute('hidden', 'hidden'));
 
     this.options.forEach(option => {
       if (option.value === refs.startCity.value) {
         refs.endCity.querySelector('option[value=Empty]').selected;
 
-        option.classList.add('is-hidden');
+        option.setAttribute('hidden', 'hidden');
         return;
       }
     });
