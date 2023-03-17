@@ -118,8 +118,6 @@ const handleServiceType = () => {
     selectedRadioInput.value === 'parcel' &&
     refs.startCity.selectedIndex <= UACityIndex
   ) {
-    refs.endCity.selectedIndex = filterDirections.options.length - 1;
-
     filterDirections.parcelFromUkraine();
   }
 
@@ -173,6 +171,10 @@ const setAvailableDate = () => {
 };
 const handleFormActions = event => {
   handleServiceType();
+
+  if (event.target === refs.seatRadioBtn) {
+    refs.endCity.selectedIndex = this.options.length - 1;
+  }
 
   if (event.target !== refs.startCity && event.target !== refs.endCity) {
     return;

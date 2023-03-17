@@ -147,6 +147,10 @@
   }
 }
 
+.routes__id {
+  color: $primary-white-alpha;
+}
+
 .schedule__table {
   margin-bottom: 20px;
   width: 100%;
@@ -154,18 +158,23 @@
 
 .schedule__row {
   display: flex;
-  justify-content: space-around;
-  @media screen and (min-width: 768px) {
-    justify-content: space-between;
+  justify-content: space-between;
 
+  @media screen and (min-width: 768px) {
     font-size: 18px;
   }
 }
 
 .schedule__date {
+  text-align: start;
+  max-width: 110px;
   @media screen and (min-width: 1200px) {
     font-size: 20px;
   }
+}
+
+.schedule__date--right {
+  text-align: end;
 }
 
 .routes__addons {
@@ -192,20 +201,3 @@
   align-items: center;
   gap: 5px;
 }
-
-// .icon-btn-arrow {
-//   background-image: url('../images/btn-arrow.svg');
-//   background-size: contain;
-// }
-// .icon-wifi {
-//   background-image: url('../images/wifi.svg');
-//   background-size: contain;
-// }
-// .icon-sleeping-bed {
-//   background-image: url('../images/sleeping-bed.svg');
-//   background-size: contain;
-// }
-// .icon-charger {
-//   background-image: url('../images/charger.svg');
-//   background-size: contain;
-// }

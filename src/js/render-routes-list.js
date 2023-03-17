@@ -1,6 +1,5 @@
-// import flatpickr from 'flatpickr';
-// import 'flatpickr/dist/flatpickr.min.css';
 import { getRingRoutesList, getRingRoutesReverseList } from './handle-sheets';
+import { handleCardClick } from './modal-form';
 
 const refs = {
   startCity: document.querySelector('#start-route'),
@@ -9,6 +8,7 @@ const refs = {
   routesSearchForm: document.querySelector('[data-routes-search-form]'),
   routesList: document.querySelector('[data-routes-list]'),
   searchBtn: document.querySelector('[data-routes-search-btn]'),
+  routeCards: [],
 };
 
 const calculateTripData = (endTime, startTime) => {
@@ -41,6 +41,9 @@ const handleSearchRoutes = async event => {
     } else {
       await renderListMarkup(getRingRoutesList);
     }
+    refs.routeCards.forEach(card => {
+      card.addEventListener('click', handleCardClick);
+    });
   } catch (error) {
     console.log(error);
   }
@@ -59,18 +62,19 @@ const renderListMarkup = async listType => {
         startCityTime
       );
 
-      return `        <li class="routes__bus">
+      return `        <li class="routes__bus" data-route>
+      <p class="routes__id">${bus.RingBus_ID}</p>
       <table class="schedule__table">
         <thead>
           <tr class="schedule__row">
             <th class="schedule__date">${departTime}</th>
-            <th class="schedule__date">${arriveTime}</th>
+            <th class="schedule__date schedule__date--right">${arriveTime}</th>
           </tr>
         </thead>
         <tbody>
           <tr class="schedule__row">
             <td class="schedule__city">${refs.startCity.selectedOptions[0].text}</td>
-            <td class="schedule__city">${refs.endCity.selectedOptions[0].text}</td>
+            <td class="schedule__city schedule__city--right">${refs.endCity.selectedOptions[0].text}</td>
           </tr>
         </tbody>
       </table>
@@ -115,6 +119,7 @@ const renderListMarkup = async listType => {
   });
 
   refs.routesList.innerHTML = markup.join('');
+  refs.routeCards = document.querySelectorAll('[data-route]');
 };
 
 refs.routesSearchForm.addEventListener('submit', handleSearchRoutes);

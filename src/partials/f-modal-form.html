@@ -1,19 +1,63 @@
 <div class="backdrop is-hidden" data-modal-backdrop>
   <div class="modal">
-    <table>
-      <tr>
-        <th>Ваш маршрут</th>
-        <th></th>
-      </tr>
-      <tr>
-        <td>Чернівці</td>
-        <td>01.01.2021 06:00</td>
-      </tr>
-      <tr>
-        <td>Берлін</td>
-        <td>02.02.2022 06:00</td>
-      </tr>
-    </table>
+    <table data-modal-table></table>
+    <h2 class="modal__title">Натисніть на іконку для зв'язку з водієм</h2>
+    <ul class="socials socials--add-margin-bottom">
+      <li class="socials__item">
+        <a
+          class="socials__link"
+          rel="noopener nofollow noreferrer"
+          title="+380999"
+          data-phone-link
+          ><svg viewBox="0 0 32 32" width="40px">
+            <use href="./images/icons.svg#icon-handset"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="socials__item">
+        <a
+          class="socials__link"
+          rel="noopener nofollow noreferrer"
+          data-viber-link
+          ><svg viewBox="0 0 32 32" width="40px">
+            <use href="./images/icons.svg#icon-viber"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="socials__item">
+        <a
+          class="socials__link"
+          rel="noopener nofollow noreferrer"
+          data-telegram-link
+          ><svg viewBox="0 0 32 32" width="40px">
+            <use href="./images/icons.svg#icon-telegram"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="socials__item">
+        <a
+          rel="noopener nofollow noreferrer"
+          class="socials__link"
+          data-whatsapp-link
+          ><svg viewBox="0 0 32 32" width="40px">
+            <use href="./images/icons.svg#icon-whatsapp"></use>
+          </svg>
+        </a>
+      </li>
+
+      <li class="socials__item">
+        <a
+          class="socials__link"
+          rel="noopener nofollow noreferrer"
+          data-instagram-link
+        >
+          <svg viewBox="0 0 32 32" width="30px" class="socials__instagram-icon">
+            <use href="./images/icons.svg#icon-instagram"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+    <p class="modal__subtitle">АБО</p>
     <h2 class="modal__title">Залиште свої дані, з Вами зв'яжеться водій</h2>
     <form class="modal-form" autocomplete="off" data-modal-form>
       <div class="modal__form">
@@ -39,10 +83,6 @@
           minlength="10"
           maxlength="13"
         />
-      </div>
-      <div class="modal__form">
-        <label for="email">Інстаграм</label>
-        <input type="email" name="email" id="email" class="modal__input" />
       </div>
       <div class="modal__textarea">
         <label for="comment">Коментар</label>
