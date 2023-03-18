@@ -1,5 +1,3 @@
-import { orderInfo } from './modal-form';
-
 const setToken = async () => {
   const adminArray = await fetch(
     'https://641201246e3ca3175304119e.mockapi.io/api/auth/admin'
