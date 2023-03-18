@@ -8,7 +8,6 @@ const setToken = async () => {
 
 const telegramOptions = {
   method: 'POST',
-  body: JSON.stringify(orderInfo),
   headers: {
     'Content-Type': 'application/json;',
   },
