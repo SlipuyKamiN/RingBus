@@ -1,6 +1,7 @@
 import { getRingRoutesList, getRingRoutesReverseList } from './handle-sheets';
 import { handleCardClick } from './modal-form';
 import { refs } from './elements';
+import { Notify } from 'notiflix';
 
 const calculateTripData = (endTime, startTime) => {
   const depart = new Date(`${refs.dateForm.value} ${startTime}`).getTime();
@@ -20,7 +21,7 @@ const calculateTripData = (endTime, startTime) => {
 const handleSearchRoutes = async event => {
   event.preventDefault();
   if (!refs.dateForm.value) {
-    console.log('Yo, where is the date?');
+    Notify.info('Виберіть дату');
     return;
   }
 
@@ -33,6 +34,7 @@ const handleSearchRoutes = async event => {
       await renderListMarkup(getRingRoutesList);
     }
   } catch (error) {
+    Notify.failure('Щось пішло не так...');
     console.log(error);
   }
   refs.searchBtn.disabled = false;

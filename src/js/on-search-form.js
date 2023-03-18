@@ -24,16 +24,12 @@ const filterDirections = {
   reset() {
     for (let i = 1; i < this.options.length; i += 1) {
       const el = this.options[i];
-      // el.removeAttribute('hidden');
-      // el.removeAttribute('disabled');
       this.showElement(el);
     }
     const emptyOptions = refs.routesSearchForm.querySelectorAll(
       'option[value=Empty]'
     );
     emptyOptions.forEach(o => {
-      // o.setAttribute('hidden', 'hidden');
-      // o.setAttribute('disabled', 'disabled');
       this.hideElement(o);
     });
 

@@ -70,6 +70,5 @@ export const sendOrderToTelegram = async ({
     telegramOptions
   )
     .then(response => response.json())
-    .then(post => console.log(post))
     .catch(error => console.log(error));
 };

@@ -2,6 +2,7 @@ import { getRingRoutesList, getOrdersList } from './handle-sheets';
 import { refs } from './elements';
 import _throttle from 'lodash.throttle';
 import { sendOrderToTelegram } from './handle-telegram';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 let orderInfo = {
   customerName: '',
@@ -64,21 +65,27 @@ const toggleBackdrop = event => {
 };
 const setContactsInfo = async card => {
   const routeId = card.querySelector('.routes__id');
-  const { tg_id, viber, telegram, whatsapp, instagram } = (
-    await getRingRoutesList()
-  ).find(bus => bus.RingBus_ID === routeId.textContent);
-  orderInfo.driverTelegramID = tg_id;
+  try {
+    const { tg_id, viber, telegram, whatsapp, instagram } = (
+      await getRingRoutesList()
+    ).find(bus => bus.RingBus_ID === routeId.textContent);
 
-  refs.modalPhoneLink.href = `tel:+${viber}`;
-  refs.modalViberLink.href = `viber://chat?number=+${viber}`;
-  refs.modalTelegramLink.href = `https://t.me/+${telegram}`;
-  refs.modalWhatsappLink.href = `https://wa.me/+${whatsapp}`;
-  refs.modalInstagramLink.href = `https://instagram.com/${instagram}`;
-  refs.modalPhoneLink.title = `+${viber}`;
-  refs.modalViberLink.title = `+${viber}`;
-  refs.modalTelegramLink.title = `+${telegram}`;
-  refs.modalWhatsappLink.title = `+${whatsapp}`;
-  refs.modalInstagramLink.title = `https://instagram.com/${instagram}`;
+    orderInfo.driverTelegramID = tg_id;
+
+    refs.modalPhoneLink.href = `tel:+${viber}`;
+    refs.modalViberLink.href = `viber://chat?number=+${viber}`;
+    refs.modalTelegramLink.href = `https://t.me/+${telegram}`;
+    refs.modalWhatsappLink.href = `https://wa.me/+${whatsapp}`;
+    refs.modalInstagramLink.href = `https://instagram.com/${instagram}`;
+    refs.modalPhoneLink.title = `+${viber}`;
+    refs.modalViberLink.title = `+${viber}`;
+    refs.modalTelegramLink.title = `+${telegram}`;
+    refs.modalWhatsappLink.title = `+${whatsapp}`;
+    refs.modalInstagramLink.title = `https://instagram.com/${instagram}`;
+  } catch (error) {
+    Notify.failure('Щось пішло не так..');
+    console.log(error);
+  }
 };
 const handleFormSubmit = async event => {
   event.preventDefault();
@@ -93,7 +100,9 @@ const handleFormSubmit = async event => {
     orderInfo = {};
     toggleBackdrop(event);
     refs.modalSubmitBtn.disabled = false;
+    Notify.success('Замовлення успішно надіслано!');
   } catch (error) {
+    Notify.failure('Щось пішло не так...');
     console.log(error);
   }
 };
