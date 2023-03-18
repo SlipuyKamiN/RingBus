@@ -67,7 +67,7 @@ export const sendOrderToTelegram = async ({
     '</u>';
 
   fetch(
-    `https://api.telegram.org/bot${TOKEN}/sendMessage?chat_id=${1231125365}&parse_mode=HTML&text=${TEXT}`,
+    `https://api.telegram.org/bot${TOKEN}/sendMessage?chat_id=${driverTelegramID}&parse_mode=HTML&text=${TEXT}`,
     telegramOptions
   )
     .then(response => response.json())
