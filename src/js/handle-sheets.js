@@ -1,5 +1,4 @@
 import { GoogleSpreadsheet } from 'google-spreadsheet';
-// import keys from '../../credentials.json';
 
 const SHEET_ID = '1s1Ap9gORGsVw-An5TJGBEaXroJ3n0yBhluvtRM85D6M';
 const doc = new GoogleSpreadsheet(SHEET_ID);

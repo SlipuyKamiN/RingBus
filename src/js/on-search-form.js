@@ -4,18 +4,6 @@ import { getRingRoutesList, getRingRoutesReverseList } from './handle-sheets';
 import _debounce from 'lodash.debounce';
 import { refs } from './elements';
 
-// const refs = {
-//   startCity: document.querySelector('[data-start-route-select]'),
-//   endCity: document.querySelector('[data-end-route-select]'),
-//   dateForm: document.querySelector('[data-date-selector]'),
-//   routesSearchForm: document.querySelector('[data-routes-search-form]'),
-//   routesList: document.querySelector('[data-routes-list]'),
-//   searchBtn: document.querySelector('[data-routes-search-btn]'),
-//   novaPoshtaOption: document.querySelector('option[value=NovaPoshta]'),
-//   parcelRadioBtn: document.querySelectorAll('#parcel'),
-//   seatRadioBtn: document.querySelectorAll('#seat'),
-// };
-
 refs.dateForm.disabled = true;
 
 let dateOptions = {
@@ -56,31 +44,25 @@ const filterDirections = {
   seatToUkraine() {
     for (let i = 1; i < this.options.length; i += 1) {
       const el = this.options[i];
-      // el.removeAttribute('hidden');
       this.showElement(el);
     }
     refs.novaPoshtaOption.removeAttribute('selected');
-    // refs.novaPoshtaOption.setAttribute('hidden', 'hidden');
     this.hideElement(refs.novaPoshtaOption);
   },
   seatFromUkraine() {
     for (let i = 0; i <= UACityIndex + 1; i += 1) {
       const el = this.options[i];
-      // el.setAttribute('hidden', 'hidden');
       this.hideElement(el);
     }
     refs.novaPoshtaOption.removeAttribute('selected');
-    // refs.novaPoshtaOption.setAttribute('hidden', 'hidden');
     this.hideElement(refs.novaPoshtaOption);
     return;
   },
   parcelToUkraine() {
     for (let i = 0; i < this.options.length; i += 1) {
       const el = this.options[i];
-      // el.removeAttribute('hidden');
       this.showElement(el);
     }
-    // refs.novaPoshtaOption.removeAttribute('hidden');
     this.showElement(refs.novaPoshtaOption);
     refs.novaPoshtaOption.setAttribute('selected', 'true');
     return;
@@ -88,12 +70,10 @@ const filterDirections = {
   parcelFromUkraine() {
     for (let i = 0; i <= UACityIndex + 1; i += 1) {
       const el = this.options[i];
-      // el.setAttribute('hidden', 'hidden');
       this.hideElement(el);
     }
 
     refs.novaPoshtaOption.removeAttribute('selected');
-    // refs.novaPoshtaOption.setAttribute('hidden', 'hidden');
     this.hideElement(refs.novaPoshtaOption);
     return;
   },
@@ -107,7 +87,6 @@ const filterDirections = {
       if (option.value === refs.startCity.value) {
         refs.endCity.querySelector('option[value=Empty]').selected;
 
-        // option.setAttribute('hidden', 'hidden');
         this.hideElement(option);
         return;
       }
@@ -160,6 +139,9 @@ const handleServiceType = () => {
   filterDirections.hideEqualCity();
 };
 const getAvailableDate = async listType => {
+  refs.dateForm.disabled = true;
+  dateSelector.clear();
+
   let ringBuseslist = await listType();
   let availableDays = [];
 
@@ -178,9 +160,6 @@ const getAvailableDate = async listType => {
   refs.dateForm.disabled = false;
 };
 const setAvailableDate = () => {
-  refs.dateForm.disabled = true;
-  dateSelector.clear();
-
   if (refs.startCity.value === 'Empty' || refs.endCity.value === 'Empty') {
     return;
   }
@@ -197,6 +176,7 @@ const handleFormActions = event => {
 
   if (event.target === refs.seatRadioBtn[0]) {
     refs.routesSearchForm.reset();
+    refs.dateForm.disabled = true;
   }
 
   if (event.target !== refs.startCity && event.target !== refs.endCity) {
