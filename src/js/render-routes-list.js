@@ -21,7 +21,7 @@ const calculateTripData = (endTime, startTime) => {
 const handleSearchRoutes = async event => {
   event.preventDefault();
   if (!refs.dateForm.value) {
-    Notify.info('Виберіть дату');
+    Notify.info('Виберіть маршрут і дату поїздки');
     return;
   }
 
