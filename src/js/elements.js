@@ -1,5 +1,5 @@
 export const refs = {
-  openCloseDropMenuBtn: document.querySelector('[data-open-close-btn]'),
+  toggleDropMenuBtns: document.querySelectorAll('[data-open-close-btn]'),
   dropMenu: document.querySelector('[data-nav]'),
   backdrop: document.querySelector('[data-modal-backdrop]'),
   modalOpenBtn: document.querySelector('[data-modal-open]'),

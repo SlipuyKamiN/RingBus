@@ -1,6 +1,9 @@
 import { refs } from './elements';
 
-refs.openCloseDropMenuBtn.addEventListener('click', event => {
-  event.preventDefault();
+const toggleDropMenu = event => {
   refs.dropMenu.classList.toggle('is-hidden');
+};
+
+refs.toggleDropMenuBtns.forEach(btn => {
+  btn.addEventListener('click', toggleDropMenu);
 });
