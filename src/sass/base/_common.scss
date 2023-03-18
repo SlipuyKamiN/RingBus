@@ -107,6 +107,10 @@ body {
   color: $primary-white;
   background-color: transparent;
   fill: $primary-white;
+
+  transition: fill $transition-duration-cubic, color $transition-duration-cubic,
+    background-color $transition-duration-cubic,
+    border $transition-duration-cubic, border-color $transition-duration-cubic;
   &:hover,
   &:focus {
     fill: $secondary-brand-color;

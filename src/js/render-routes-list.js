@@ -32,9 +32,6 @@ const handleSearchRoutes = async event => {
     } else {
       await renderListMarkup(getRingRoutesList);
     }
-    refs.routeCards.forEach(card => {
-      card.addEventListener('click', handleCardClick);
-    });
   } catch (error) {
     console.log(error);
   }
@@ -111,6 +108,9 @@ const renderListMarkup = async listType => {
 
   refs.routesList.innerHTML = markup.join('');
   refs.routeCards = document.querySelectorAll('[data-route]');
+  refs.routeCards.forEach(card => {
+    card.addEventListener('click', handleCardClick);
+  });
 };
 
 refs.routesSearchForm.addEventListener('submit', handleSearchRoutes);

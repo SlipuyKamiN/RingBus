@@ -66,6 +66,16 @@
   display: flex;
   align-items: center;
   gap: 5px;
+
+  transition: fill $transition-duration-cubic,
+    border-color $transition-duration-cubic, color $transition-duration-cubic;
+
+  &:hover,
+  &:focus {
+    border-color: $secondary-brand-color;
+    fill: $secondary-brand-color;
+    color: $secondary-brand-color;
+  }
 }
 
 .route-form__select {
@@ -87,6 +97,9 @@
   border-radius: 4px;
   color: $primary-black;
   background-color: $primary-white-alpha;
+
+  transition: background-color $transition-duration-cubic;
+
   &:disabled {
     background-color: $primary-black-alpha;
   }
@@ -100,6 +113,9 @@
   justify-content: center;
   gap: 10px;
   fill: $primary-white;
+
+  transition: fill $transition-duration-cubic, color $transition-duration-cubic,
+    border-color $transition-duration-cubic;
 }
 
 .route-form__btn {
@@ -200,4 +216,16 @@
   display: flex;
   align-items: center;
   gap: 5px;
+
+  transition: background-color $transition-duration-cubic,
+    fill $transition-duration-cubic, color $transition-duration-cubic,
+    border-color $transition-duration-cubic;
+
+  &:disabled {
+    cursor: wait;
+    background-color: $primary-black-alpha;
+    fill: $primary-white-alpha;
+    color: $primary-white-alpha;
+    border-color: $primary-white-alpha;
+  }
 }

@@ -1,6 +1,6 @@
 <div class="backdrop is-hidden" data-modal-backdrop>
   <div class="modal">
-    <table data-modal-table></table>
+    <table class="modal__table" data-modal-table></table>
     <h2 class="modal__title">Натисніть на іконку для зв'язку з водієм</h2>
     <ul class="socials socials--add-margin-bottom">
       <li class="socials__item">
@@ -70,6 +70,7 @@
           name="name"
           id="name"
           class="modal__input"
+          placeholder="Ім'я"
           required
           pattern="[a-zA-Z\u0400-\u04ff]{3,30}"
         />
@@ -81,6 +82,7 @@
           name="tel"
           id="tel"
           class="modal__input"
+          placeholder="+380990011222"
           required
           pattern="\+?[0-9\s\-\(\)]+"
           minlength="10"

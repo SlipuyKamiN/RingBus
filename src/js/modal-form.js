@@ -19,6 +19,11 @@ export const handleCardClick = event => {
     return;
   }
 
+  selectBtn.disabled = true;
+  setTimeout(() => {
+    selectBtn.disabled = false;
+  }, 1000);
+
   setContactsInfo(event.currentTarget);
   renderModalRouteInfo(event.currentTarget);
   toggleBackdrop(event);

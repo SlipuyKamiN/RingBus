@@ -72,6 +72,9 @@
 .socials__item {
   border-radius: 50%;
 
+  transition: transform $transition-duration-cubic,
+    filter $transition-duration-cubic;
+
   &:hover,
   &:focus {
     transform: scale(110%);
@@ -83,6 +86,7 @@
   display: block;
   width: 100%;
   height: 100%;
+  fill: $primary-black-alpha;
 }
 
 .contacts__phone-icon-wrapper {
@@ -90,10 +94,16 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+
+  transition: transform $transition-duration-cubic,
+    filter $transition-duration-cubic;
 }
 
 .socials__instagram-icon {
   fill: #d82d7e;
+
+  transition: transform $transition-duration-cubic,
+    filter $transition-duration-cubic;
 }
 
 .contacts__phone-icon-wrapper:hover,

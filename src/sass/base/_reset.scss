@@ -20,6 +20,7 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+  transition: color $transition-duration-cubic;
 }
 /* Свойства для корректного отображения картинок */
 img {

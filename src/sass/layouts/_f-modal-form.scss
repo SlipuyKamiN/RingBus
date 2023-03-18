@@ -9,6 +9,10 @@
   overflow-y: auto;
 
   background-color: $primary-black-alpha;
+  backdrop-filter: blur(4px);
+
+  transition: opacity $transition-duration-cubic,
+    visibility $transition-duration-cubic, transform $transition-duration-cubic;
 }
 
 .modal {
@@ -24,7 +28,11 @@
   max-width: 450px;
 
   border-radius: 15px;
-  background-color: $primary-white;
+  background-color: rgba($color: #ffffff, $alpha: 0.85);
+}
+
+.modal__table {
+  width: 100%;
 }
 
 .modal__route-id {
@@ -52,6 +60,7 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+
   & label {
     margin-bottom: 4px;
   }
@@ -60,12 +69,14 @@
 .modal__input {
   height: 40px;
   margin-bottom: 10px;
+  padding: 5px 10px;
 
   font-size: 18px;
 
   border: 1px solid;
   border-radius: 4px;
   color: $primary-black;
+  background-color: $primary-white-alpha;
 }
 
 .modal__textarea {
@@ -75,12 +86,14 @@
 
     height: 80px;
     margin-bottom: 10px;
+    padding: 5px 10px;
 
     font-size: 18px;
 
     border: 1px solid;
     border-radius: 4px;
     color: $primary-black;
+    background-color: $primary-white-alpha;
   }
 }
 
