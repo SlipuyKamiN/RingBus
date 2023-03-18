@@ -98,6 +98,9 @@ const handleFormSubmit = async event => {
 const updateOrderInfo = () => {
   const { name, tel, comment } = refs.modalForm.elements;
 
+  orderInfo.serviceType = document.querySelector(
+    'input[type = radio]:checked'
+  ).value;
   orderInfo.customerName = name.value;
   orderInfo.customerPhone = tel.value;
   orderInfo.customerComment = comment.value;

@@ -36,12 +36,18 @@ const filterDirections = {
   reset() {
     for (let i = 1; i < this.options.length; i += 1) {
       const el = this.options[i];
-      el.removeAttribute('hidden');
+      // el.removeAttribute('hidden');
+      // el.removeAttribute('disabled');
+      this.showElement(el);
     }
     const emptyOptions = refs.routesSearchForm.querySelectorAll(
       'option[value=Empty]'
     );
-    emptyOptions.forEach(o => o.setAttribute('hidden', 'hidden'));
+    emptyOptions.forEach(o => {
+      // o.setAttribute('hidden', 'hidden');
+      // o.setAttribute('disabled', 'disabled');
+      this.hideElement(o);
+    });
 
     if (refs.startCity.value === refs.endCity.value) {
       refs.endCity.selectedIndex = this.options.length - 1;
@@ -50,53 +56,70 @@ const filterDirections = {
   seatToUkraine() {
     for (let i = 1; i < this.options.length; i += 1) {
       const el = this.options[i];
-      el.removeAttribute('hidden');
+      // el.removeAttribute('hidden');
+      this.showElement(el);
     }
     refs.novaPoshtaOption.removeAttribute('selected');
-    refs.novaPoshtaOption.setAttribute('hidden', 'hidden');
+    // refs.novaPoshtaOption.setAttribute('hidden', 'hidden');
+    this.hideElement(refs.novaPoshtaOption);
   },
   seatFromUkraine() {
     for (let i = 0; i <= UACityIndex + 1; i += 1) {
       const el = this.options[i];
-      el.setAttribute('hidden', 'hidden');
+      // el.setAttribute('hidden', 'hidden');
+      this.hideElement(el);
     }
     refs.novaPoshtaOption.removeAttribute('selected');
-    refs.novaPoshtaOption.setAttribute('hidden', 'hidden');
+    // refs.novaPoshtaOption.setAttribute('hidden', 'hidden');
+    this.hideElement(refs.novaPoshtaOption);
     return;
   },
   parcelToUkraine() {
     for (let i = 0; i < this.options.length; i += 1) {
       const el = this.options[i];
-      el.removeAttribute('hidden');
+      // el.removeAttribute('hidden');
+      this.showElement(el);
     }
-    refs.novaPoshtaOption.removeAttribute('hidden');
+    // refs.novaPoshtaOption.removeAttribute('hidden');
+    this.showElement(refs.novaPoshtaOption);
     refs.novaPoshtaOption.setAttribute('selected', 'true');
     return;
   },
   parcelFromUkraine() {
     for (let i = 0; i <= UACityIndex + 1; i += 1) {
       const el = this.options[i];
-      el.setAttribute('hidden', 'hidden');
+      // el.setAttribute('hidden', 'hidden');
+      this.hideElement(el);
     }
 
     refs.novaPoshtaOption.removeAttribute('selected');
-    refs.novaPoshtaOption.setAttribute('hidden', 'hidden');
+    // refs.novaPoshtaOption.setAttribute('hidden', 'hidden');
+    this.hideElement(refs.novaPoshtaOption);
     return;
   },
   hideEqualCity() {
     const emptyOptions = refs.routesSearchForm.querySelectorAll(
       'option[value=Empty]'
     );
-    emptyOptions.forEach(o => o.setAttribute('hidden', 'hidden'));
+    emptyOptions.forEach(o => this.hideElement(o));
 
     this.options.forEach(option => {
       if (option.value === refs.startCity.value) {
         refs.endCity.querySelector('option[value=Empty]').selected;
 
-        option.setAttribute('hidden', 'hidden');
+        // option.setAttribute('hidden', 'hidden');
+        this.hideElement(option);
         return;
       }
     });
+  },
+  hideElement(element) {
+    element.setAttribute('hidden', 'hidden');
+    element.setAttribute('disabled', 'disabled');
+  },
+  showElement(element) {
+    element.removeAttribute('hidden');
+    element.removeAttribute('disabled');
   },
 };
 
@@ -172,8 +195,8 @@ const setAvailableDate = () => {
 const handleFormActions = event => {
   handleServiceType();
 
-  if (event.target === refs.seatRadioBtn) {
-    refs.endCity.selectedIndex = this.options.length - 1;
+  if (event.target === refs.seatRadioBtn[0]) {
+    refs.routesSearchForm.reset();
   }
 
   if (event.target !== refs.startCity && event.target !== refs.endCity) {
