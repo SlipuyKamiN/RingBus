@@ -47,7 +47,14 @@ const renderListMarkup = async listType => {
     let endCityTime = eval(`bus.in_${refs.endCity.value}`);
     let selectedDay = new Date(refs.dateForm.value).getDay();
 
-    if (startCityTime && endCityTime && selectedDay === Number(bus.start_day)) {
+    if (
+      startCityTime &&
+      endCityTime &&
+      bus.start_day &&
+      selectedDay === Number(bus.start_day)
+    ) {
+      console.log(selectedDay, bus.start_day);
+
       const { departTime, arriveTime } = calculateTripData(
         endCityTime,
         startCityTime
@@ -107,6 +114,8 @@ const renderListMarkup = async listType => {
       </div>
     </li>`;
     }
+
+    return;
   });
 
   refs.routesList.innerHTML = markup.join('');
