@@ -53,8 +53,6 @@ const renderListMarkup = async listType => {
       bus.start_day &&
       selectedDay === Number(bus.start_day)
     ) {
-      console.log(selectedDay, bus.start_day);
-
       const { departTime, arriveTime } = calculateTripData(
         endCityTime,
         startCityTime

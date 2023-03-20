@@ -145,7 +145,7 @@ const getAvailableDate = async listType => {
     let startCityTime = eval(`bus.in_${refs.startCity.value}`);
     let endCityTime = eval(`bus.in_${refs.endCity.value}`);
 
-    if (startCityTime && endCityTime) {
+    if (startCityTime && endCityTime && bus.start_day) {
       availableDays.push(function (date) {
         return date.getDay() === Number(bus.start_day);
       });
