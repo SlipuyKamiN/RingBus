@@ -45,8 +45,9 @@ const renderListMarkup = async listType => {
   const markup = ringBuseslist.map(bus => {
     let startCityTime = eval(`bus.in_${refs.startCity.value}`);
     let endCityTime = eval(`bus.in_${refs.endCity.value}`);
+    let selectedDay = new Date(refs.dateForm.value).getDay();
 
-    if (startCityTime && endCityTime) {
+    if (startCityTime && endCityTime && selectedDay === Number(bus.start_day)) {
       const { departTime, arriveTime } = calculateTripData(
         endCityTime,
         startCityTime
