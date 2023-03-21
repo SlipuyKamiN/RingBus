@@ -2,10 +2,10 @@
   "name": "RingBus",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://slipuykamin.github.io/RingBus",
+  "homepage": "https://ringbus.com.ua",
   "scripts": {
     "start": "parcel src/*.html -p 8999",
-    "build": "parcel build src/*.html --public-url /RingBus/"
+    "build": "parcel build src/*.html --public-url /"
   },
   "repository": {
     "type": "git",
