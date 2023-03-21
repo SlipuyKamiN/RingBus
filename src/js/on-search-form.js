@@ -18,7 +18,7 @@ let dateOptions = {
   enable: [],
 };
 const dateSelector = flatpickr(refs.dateForm, dateOptions);
-const UACityIndex = 3;
+const UACityIndex = 4;
 const filterDirections = {
   options: refs.endCity.querySelectorAll('option'),
   reset() {
