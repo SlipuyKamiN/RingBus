@@ -61,6 +61,7 @@ const renderListMarkup = async listType => {
       return `        <li class="routes__bus" data-route>
       <p class="routes__id">${bus.RingBus_ID}</p>
       <table class="schedule__table">
+      <p>Зверніть увагу, що дата прибуття може не співпадати, час подорожі залежить від завантаженості доріг, погодних умов та ситуації на кордоні.</p>
         <thead>
           <tr class="schedule__row">
             <th class="schedule__date">${departTime}</th>
