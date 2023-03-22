@@ -3,7 +3,8 @@
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
-    div {
+    .route-form__select,
+    .route-form__service {
       width: 50%;
     }
   }
@@ -107,6 +108,7 @@
 
 .route-form__date-selector--wrapper {
   position: relative;
+  width: 100%;
 
   label {
     display: block;
@@ -116,6 +118,10 @@
 
 .loading {
   display: none;
+}
+
+.route-form__date-selector {
+  width: 100%;
 }
 
 .route-form__date-selector:disabled + .loading {
