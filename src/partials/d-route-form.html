@@ -105,15 +105,18 @@
               Місто прибуття
             </option>
           </select>
-          <label for="start-date">Дата відправлення: </label>
-          <input
-            type="date"
-            id="start-date"
-            class="route-form__selector"
-            placeholder="Виберіть доступну дату"
-            required
-            data-date-selector
-          />
+          <div class="route-form__date-selector--wrapper">
+            <label for="start-date">Дата відправлення: </label>
+            <input
+              type="date"
+              id="start-date"
+              class="route-form__selector route-form__date-selector"
+              placeholder="Виберіть доступну дату"
+              required
+              data-date-selector
+            />
+            <span class="loading"></span>
+          </div>
         </div>
 
         <button
