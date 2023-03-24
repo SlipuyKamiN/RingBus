@@ -4,8 +4,19 @@ import { refs } from './elements';
 import { Notify } from 'notiflix';
 
 const calculateTripData = (endTime, startTime) => {
-  const depart = new Date(`${refs.dateForm.value} ${startTime}`).getTime();
-  let between = endTime.slice(0, -3) - startTime.slice(0, -3);
+  let depart = null;
+  let between = null;
+
+  if (startTime.slice(0, -3) > 24) {
+    startTimeDayPlus = startTime.slice(0, -3) - '24';
+    startTimeDayPlus += ':00';
+    depart = new Date(`${refs.dateForm.value} ${startTimeDayPlus}`).getTime();
+    depart += 86400000;
+    between = endTime.slice(0, -3) - startTime.slice(0, -3);
+  } else {
+    depart = new Date(`${refs.dateForm.value} ${startTime}`).getTime();
+    between = endTime.slice(0, -3) - startTime.slice(0, -3);
+  }
 
   if (between < 0) {
     between += 24;
