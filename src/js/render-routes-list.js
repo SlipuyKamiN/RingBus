@@ -10,8 +10,9 @@ const calculateTripData = (endTime, startTime) => {
   if (startTime.slice(0, -3) > 24) {
     let startTimeDayPlus = startTime.slice(0, -3) - 24;
     startTimeDayPlus += ':00';
-    depart = new Date(`${refs.dateForm.value} ${startTimeDayPlus}`).getTime();
-    depart += 86400000;
+    depart = new Date(`${refs.dateForm.value} ${startTimeDayPlus}`);
+    depart.setDate(depart.getDate() + 1);
+    console.log(depart);
     between = endTime.slice(0, -3) - startTime.slice(0, -3);
   } else {
     depart = new Date(`${refs.dateForm.value} ${startTime}`).getTime();
@@ -22,7 +23,7 @@ const calculateTripData = (endTime, startTime) => {
     between += 24;
   }
 
-  const arrive = depart + Number(between * 3600000);
+  const arrive = depart.getTime() + Number(between * 3600000);
 
   const departTime = new Date(depart).toLocaleString().slice(0, -3);
   const arriveTime = new Date(arrive).toLocaleString().slice(0, -3);
