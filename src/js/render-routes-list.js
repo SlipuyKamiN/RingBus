@@ -8,7 +8,7 @@ const calculateTripData = (endTime, startTime) => {
   let between = null;
 
   if (startTime.slice(0, -3) > 24) {
-    let startTimeDayPlus = startTime.slice(0, -3) - '24';
+    let startTimeDayPlus = startTime.slice(0, -3) - 24;
     startTimeDayPlus += ':00';
     depart = new Date(`${refs.dateForm.value} ${startTimeDayPlus}`).getTime();
     depart += 86400000;
