@@ -4,32 +4,24 @@ import { refs } from './elements';
 import { Notify } from 'notiflix';
 
 const calculateTripData = (endTime, startTime) => {
-  let depart = null;
-  let between = null;
+  const addHoursToDate = (date, hours) => {
+    const baseDate = new Date(date);
 
-  if (startTime.slice(0, -3) > 24) {
-    let startTimeDayPlus = startTime.slice(0, -3) - 24;
-    startTimeDayPlus += ':00';
-    depart = new Date(`${refs.dateForm.value} ${startTimeDayPlus}`);
-    depart.setDate(depart.getDate() + 1);
-    console.log(depart);
-    between = endTime.slice(0, -3) - startTime.slice(0, -3);
-  } else {
-    depart = new Date(`${refs.dateForm.value} ${startTime}`).getTime();
-    between = endTime.slice(0, -3) - startTime.slice(0, -3);
-  }
+    const fullDateInMs = baseDate.setTime(
+      baseDate.getTime() + Number(hours.slice(0, -3) - 2) * 3600000
+    );
 
-  if (between < 0) {
-    between += 24;
-  }
+    const fullDate = new Date(fullDateInMs).toLocaleString().slice(0, -3);
 
-  const arrive = depart.getTime() + Number(between * 3600000);
+    return fullDate;
+  };
 
-  const departTime = new Date(depart).toLocaleString().slice(0, -3);
-  const arriveTime = new Date(arrive).toLocaleString().slice(0, -3);
+  const departTime = addHoursToDate(refs.dateForm.value, startTime);
+  const arriveTime = addHoursToDate(refs.dateForm.value, endTime);
 
   return { departTime, arriveTime };
 };
+
 const handleSearchRoutes = async event => {
   event.preventDefault();
   if (!refs.dateForm.value) {
@@ -51,6 +43,7 @@ const handleSearchRoutes = async event => {
   }
   refs.searchBtn.disabled = false;
 };
+
 const renderListMarkup = async listType => {
   let ringBuseslist = await listType();
 
