@@ -69,14 +69,22 @@ const renderListMarkup = async listType => {
       <p class="schedule__warning">Зверніть увагу, що час прибуття може не співпадати, час подорожі залежить від завантаженості доріг, погодних умов та ситуації на кордоні.</p>
         <thead>
           <tr class="schedule__row">
-            <th class="schedule__date">${departTime}</th>
-            <th class="schedule__date schedule__date--right">${arriveTime}</th>
+            <th class="schedule__date">${
+              departTime === 'Invalid Date' ? refs.dateForm.value : departTime
+            }</th>
+            <th class="schedule__date schedule__date--right">${
+              arriveTime === 'Invalid Date' ? refs.dateForm.value : arriveTime
+            }</th>
           </tr>
         </thead>
         <tbody>
           <tr class="schedule__row">
-            <td class="schedule__city">${refs.startCity.selectedOptions[0].text}</td>
-            <td class="schedule__city schedule__city--right">${refs.endCity.selectedOptions[0].text}</td>
+            <td class="schedule__city">${
+              refs.startCity.selectedOptions[0].text
+            }</td>
+            <td class="schedule__city schedule__city--right">${
+              refs.endCity.selectedOptions[0].text
+            }</td>
           </tr>
         </tbody>
       </table>
