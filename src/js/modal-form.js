@@ -14,7 +14,7 @@ let orderInfo = {
   driverTelegramID: null,
 };
 
-export const handleCardClick = event => {
+export const handleCardClick = async event => {
   const selectBtn = event.currentTarget.querySelector('[data-modal-open]');
   if (event.target !== selectBtn) {
     return;
@@ -23,10 +23,10 @@ export const handleCardClick = event => {
   selectBtn.disabled = true;
   setTimeout(() => {
     selectBtn.disabled = false;
-  }, 1000);
+  }, 3000);
 
-  setContactsInfo(event.currentTarget);
   renderModalRouteInfo(event.currentTarget);
+  await setContactsInfo(event.currentTarget);
   toggleBackdrop(event);
 };
 const renderModalRouteInfo = card => {
