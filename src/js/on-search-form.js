@@ -1,6 +1,6 @@
 import flatpickr from 'flatpickr';
 // import 'flatpickr/dist/flatpickr.min.css';
-import 'flatpickr/dist/themes/dark.css';
+import '../../node_modules/flatpickr/dist/themes/dark.css';
 import { getRingRoutesList, getRingRoutesReverseList } from './handle-sheets';
 import _debounce from 'lodash.debounce';
 import { refs } from './elements';
