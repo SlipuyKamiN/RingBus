@@ -3,6 +3,7 @@ import 'flatpickr/dist/flatpickr.min.css';
 import { getRingRoutesList, getRingRoutesReverseList } from './handle-sheets';
 import _debounce from 'lodash.debounce';
 import { refs } from './elements';
+import { Notify } from 'notiflix';
 
 refs.dateForm.disabled = true;
 
@@ -152,7 +153,14 @@ const getAvailableDate = async listType => {
     }
   });
 
+  if (availableDays.length === 0) {
+    Notify.info(
+      'На жаль, немає доступних дат з таким сполученням міст. Будь ласка, оберіть інший маршрут.'
+    );
+  }
+
   dateSelector.set('enable', availableDays);
+
   refs.dateForm.disabled = false;
 };
 const setAvailableDate = () => {
