@@ -124,6 +124,10 @@
   width: 100%;
 }
 
+.route-form__date-selector::placeholder {
+  color: $primary-black;
+}
+
 .route-form__date-selector:disabled + .loading {
   display: block;
   position: absolute;
