@@ -61,12 +61,19 @@
 }
 
 .socials__qr-icon {
+  display: none;
   width: 100%;
   height: 100%;
   max-width: 300px;
   margin-bottom: 10px;
 
   border-radius: 15px;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .socials__item {
