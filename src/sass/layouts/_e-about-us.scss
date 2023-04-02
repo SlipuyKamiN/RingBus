@@ -1,0 +1,48 @@
+.about-us__title {
+  width: 100%;
+  margin-bottom: 10px;
+
+  text-align: center;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.about-us__description {
+  margin-bottom: 10px;
+}
+
+.about-us__subtitle {
+  margin-bottom: 10px;
+
+  font-size: 20px;
+}
+
+.about-us__item {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 10px;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.about-us__item::before {
+  content: '';
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  margin: auto 0;
+
+  color: red;
+  background-image: url(../images/ring-bus-logo-arrow.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.about-us__contacts-link {
+  text-decoration: underline;
+  font-weight: 600;
+}
