@@ -60,7 +60,7 @@ const filterDirections = {
       this.showElement(el);
     }
     this.showElement(refs.novaPoshtaOption);
-    refs.novaPoshtaOption.setAttribute('selected', 'true');
+    // refs.novaPoshtaOption.setAttribute('selected', 'true');
     return;
   },
   parcelFromUkraine() {
