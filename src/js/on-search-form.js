@@ -18,7 +18,7 @@ let dateOptions = {
   enable: [],
 };
 const calendar = flatpickr(refs.dateSelector, dateOptions);
-const UACityIndex = 10;
+const UACityIndex = 12;
 const filterDirections = {
   options: refs.endCity.querySelectorAll('option'),
   reset() {
@@ -57,7 +57,11 @@ const filterDirections = {
   parcelToUkraine() {
     for (let i = 0; i < this.options.length; i += 1) {
       const el = this.options[i];
+      // console.log(el.value, i);
       this.showElement(el);
+      if (i >= UACityIndex) {
+        this.hideElement(el);
+      }
     }
     this.showElement(refs.novaPoshtaOption);
     // refs.novaPoshtaOption.setAttribute('selected', 'true');
@@ -130,7 +134,8 @@ const handleServiceType = () => {
 
   if (
     selectedRadioInput.value === 'parcel' &&
-    refs.startCity.selectedIndex > UACityIndex
+    refs.startCity.selectedIndex > UACityIndex &&
+    refs.startCity.value !== 'Empty'
   ) {
     filterDirections.parcelToUkraine();
   }
