@@ -16,15 +16,15 @@ const calculateTripData = (endTime, startTime) => {
     return fullDate;
   };
 
-  const departTime = addHoursToDate(refs.dateForm.value, startTime);
-  const arriveTime = addHoursToDate(refs.dateForm.value, endTime);
+  const departTime = addHoursToDate(refs.dateSelector.value, startTime);
+  const arriveTime = addHoursToDate(refs.dateSelector.value, endTime);
 
   return { departTime, arriveTime };
 };
 
 const handleSearchRoutes = async event => {
   event.preventDefault();
-  if (!refs.dateForm.value) {
+  if (!refs.dateSelector.value) {
     Notify.info('Виберіть маршрут і дату поїздки');
     return;
   }
@@ -50,7 +50,7 @@ const renderListMarkup = async listType => {
   const markup = ringBuseslist.map(bus => {
     let startCityTime = eval(`bus.in_${refs.startCity.value}`);
     let endCityTime = eval(`bus.in_${refs.endCity.value}`);
-    let selectedDay = new Date(refs.dateForm.value).getDay();
+    let selectedDay = new Date(refs.dateSelector.value).getDay();
 
     if (
       startCityTime &&
@@ -70,10 +70,14 @@ const renderListMarkup = async listType => {
         <thead>
           <tr class="schedule__row">
             <th class="schedule__date">${
-              departTime === 'Invalid Date' ? refs.dateForm.value : departTime
+              departTime === 'Invalid Date'
+                ? refs.dateSelector.value
+                : departTime
             }</th>
             <th class="schedule__date schedule__date--right">${
-              arriveTime === 'Invalid Date' ? refs.dateForm.value : arriveTime
+              arriveTime === 'Invalid Date'
+                ? refs.dateSelector.value
+                : arriveTime
             }</th>
           </tr>
         </thead>
