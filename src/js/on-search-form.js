@@ -106,22 +106,22 @@ const dateSelector = {
   disabled() {
     this.dateSelector.disabled = true;
     this.dateSelector.placeholder = 'Вкажіть маршрут';
-    refs.loadingBlinker.classList.toggle('is-hidden');
+    refs.loadingBlinker.classList.add('is-hidden');
   },
   onLoading() {
     this.dateSelector.disabled = true;
     this.dateSelector.placeholder = '';
-    refs.loadingBlinker.classList.toggle('is-hidden');
+    refs.loadingBlinker.classList.remove('is-hidden');
   },
   loadedSuccess() {
     this.dateSelector.disabled = false;
     this.dateSelector.placeholder = 'Виберіть доступну дату';
-    refs.loadingBlinker.classList.toggle('is-hidden');
+    refs.loadingBlinker.classList.add('is-hidden');
   },
   loadedFailure() {
     this.dateSelector.disabled = true;
     this.dateSelector.placeholder = 'Вкажіть маршрут';
-    refs.loadingBlinker.classList.toggle('is-hidden');
+    refs.loadingBlinker.classList.add('is-hidden');
   },
 };
 
@@ -203,7 +203,7 @@ const setAvailableDate = () => {
 
   getAvailableDate(getRingRoutesList);
 };
-const debouncedSetDate = _debounce(setAvailableDate, 3000);
+const debouncedSetDate = _debounce(setAvailableDate, 2000);
 const handleFormActions = event => {
   handleServiceType();
 
