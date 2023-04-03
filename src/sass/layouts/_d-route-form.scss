@@ -96,10 +96,6 @@
   background-color: $primary-white-alpha;
 
   transition: background-color $transition-duration-cubic;
-
-  &:disabled {
-    background-color: $primary-black-alpha;
-  }
 }
 
 .route-form__date-selector--wrapper {
@@ -112,19 +108,11 @@
   }
 }
 
-.loading {
-  display: none;
-}
-
 .route-form__date-selector {
   width: 100%;
 }
 
-.route-form__date-selector::placeholder {
-  color: $primary-black;
-}
-
-.route-form__date-selector:disabled + .loading {
+.loading {
   display: block;
   position: absolute;
   top: 30px;

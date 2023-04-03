@@ -6,8 +6,6 @@ import _debounce from 'lodash.debounce';
 import { refs } from './elements';
 import { Notify } from 'notiflix';
 
-refs.dateForm.disabled = true;
-
 let dateOptions = {
   time_24hr: true,
   defaultDate: new Date(),
@@ -19,7 +17,7 @@ let dateOptions = {
   },
   enable: [],
 };
-const dateSelector = flatpickr(refs.dateForm, dateOptions);
+const calendar = flatpickr(refs.dateSelector, dateOptions);
 const UACityIndex = 10;
 const filterDirections = {
   options: refs.endCity.querySelectorAll('option'),
@@ -99,6 +97,29 @@ const filterDirections = {
     element.removeAttribute('disabled');
   },
 };
+const dateSelector = {
+  dateSelector: refs.dateSelector,
+  disabled() {
+    this.dateSelector.disabled = true;
+    this.dateSelector.placeholder = 'Вкажіть маршрут';
+    refs.loadingBlinker.classList.toggle('is-hidden');
+  },
+  onLoading() {
+    this.dateSelector.disabled = true;
+    this.dateSelector.placeholder = '';
+    refs.loadingBlinker.classList.toggle('is-hidden');
+  },
+  loadedSuccess() {
+    this.dateSelector.disabled = false;
+    this.dateSelector.placeholder = 'Виберіть доступну дату';
+    refs.loadingBlinker.classList.toggle('is-hidden');
+  },
+  loadedFailure() {
+    this.dateSelector.disabled = true;
+    this.dateSelector.placeholder = 'Вкажіть маршрут';
+    refs.loadingBlinker.classList.toggle('is-hidden');
+  },
+};
 
 const handleServiceType = () => {
   let selectedRadioInput = document.querySelector(
@@ -137,8 +158,8 @@ const handleServiceType = () => {
   filterDirections.hideEqualCity();
 };
 const getAvailableDate = async listType => {
-  refs.dateForm.disabled = true;
-  dateSelector.clear();
+  dateSelector.onLoading();
+  calendar.clear();
 
   let ringBuseslist = await listType();
   let availableDays = [];
@@ -158,11 +179,12 @@ const getAvailableDate = async listType => {
     Notify.info(
       'На жаль, немає доступних дат з таким сполученням міст. Будь ласка, оберіть інший маршрут.'
     );
+    dateSelector.loadedFailure();
+    return;
   }
 
-  dateSelector.set('enable', availableDays);
-
-  refs.dateForm.disabled = false;
+  calendar.set('enable', availableDays);
+  dateSelector.loadedSuccess();
 };
 const setAvailableDate = () => {
   if (refs.startCity.value === 'Empty' || refs.endCity.value === 'Empty') {
@@ -176,19 +198,19 @@ const setAvailableDate = () => {
 
   getAvailableDate(getRingRoutesList);
 };
+const debouncedSetDate = _debounce(setAvailableDate, 3000);
 const handleFormActions = event => {
   handleServiceType();
 
   if (event.target === refs.seatRadioBtn[0]) {
     refs.routesSearchForm.reset();
-    refs.dateForm.disabled = true;
+    dateSelector.disabled();
   }
 
   if (event.target !== refs.startCity && event.target !== refs.endCity) {
     return;
   }
 
-  const debouncedSetDate = _debounce(setAvailableDate, 3000);
   debouncedSetDate();
 };
 
