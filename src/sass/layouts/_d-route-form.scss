@@ -110,6 +110,9 @@
 
 .route-form__date-selector {
   width: 100%;
+  &::placeholder {
+    color: $primary-black;
+  }
 }
 
 .loading {
