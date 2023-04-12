@@ -19,7 +19,6 @@
     />
     <link rel="stylesheet" href="./sass/index.scss" />
     <script type="module" src="./index.js"></script>
-    <include src="./partials/facebook-pixel.html"></include>
   </head>
 
   <body>
@@ -31,19 +30,7 @@
     </main>
     <include src="./partials/e-footer.html"></include>
     <include src="./partials/f-modal-form.html"></include>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=AW-11142617606"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-
-      gtag('config', 'AW-11142617606');
-    </script>
+    <include src="./partials/google-tag.html"></include>
+    <include src="./partials/facebook-pixel.html"></include>
   </body>
 </html>
