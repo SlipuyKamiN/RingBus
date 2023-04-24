@@ -11,7 +11,7 @@ let dateOptions = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   minDate: 'today',
-  maxDate: new Date().fp_incr(28),
+  maxDate: new Date().fp_incr(56),
   locale: {
     firstDayOfWeek: 1,
   },
