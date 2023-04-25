@@ -18,7 +18,7 @@ let dateOptions = {
   enable: [],
 };
 const calendar = flatpickr(refs.dateSelector, dateOptions);
-const UACityIndex = 12;
+const UACityIndex = 11;
 const filterDirections = {
   options: refs.endCity.querySelectorAll('option'),
   reset() {
